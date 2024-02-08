@@ -1,5 +1,6 @@
 import AboutSection from "./HomeSections/AboutSection";
 import HeroSection from "./HomeSections/HeroSection";
+import MainFeatures from "./HomeSections/MainFeatures";
 
 
 const Home = () => {
@@ -7,6 +8,7 @@ const Home = () => {
         <>
             <HeroSection/>
             <AboutSection/>
+            <MainFeatures/>
         </>
     );
 };
