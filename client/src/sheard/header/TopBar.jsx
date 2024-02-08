@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const TopBar = () => {
   return (
-    <div className="bg-white w-full">
+    <div className="bg-white w-full font-semibold">
 
     <div className=" flex justify-around max-w-screen-xl mx-auto">
       <div className="flex items-center gap-1 text-back-main-color">
