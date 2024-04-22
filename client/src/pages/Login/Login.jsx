@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
+import { FaBed } from "react-icons/fa6";
 
 const Login = () => {
   return (
@@ -9,6 +10,14 @@ const Login = () => {
         <div className="w-full lg:w-4/12 px-4 pt-6">
           <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-white border-0 ">
             <div className="rounded-t mb-0 px-6 py-6">
+            <Link to={'/'} className='w-full flex items-center justify-center text-3xl text-back-main-color font-bold gap-1'>
+            
+            <span className="text-4xl">
+
+       <FaBed />
+            </span>
+       <p>STAYHUB</p>
+        </Link>
               <div className="text-center mb-3">
                 <h6 className="text-back-main-color text-sm font-bold">
                   Sign in with
