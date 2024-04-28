@@ -11,12 +11,12 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link className=" mr-2 border-primary-color" to={"/about"}>
+            <Link className=" mr-2 border-primary-color" to={"/rooms"}>
               Rooms
             </Link>
           </li>
           <li>
-            <Link className=" mr-2 border-primary-color" to={"/contact"}>
+            <Link className=" mr-2 border-primary-color" to={"/about"}>
               About us
             </Link>
           </li>
