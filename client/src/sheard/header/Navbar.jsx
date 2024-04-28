@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Logo from "./Logo";
+import BookNowbtn from "../BookNowbtn/BookNowbtn";
 
 
 const Navbar = () => {
@@ -41,9 +42,7 @@ const Navbar = () => {
         <ul className="flex gap-8 text-white font-bold">
          {navItems}
         </ul>
-        <div>
-          <button className="bg-white px-3 py-2 font-bold text-back-main-color rounded">Book Now</button>
-        </div>
+        <BookNowbtn/>
          </div>
       </div>
     </>
