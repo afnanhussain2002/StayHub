@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import Logo from "./Logo";
 import BookNowbtn from "../BookNowbtn/BookNowbtn";
+import useAuth from "../../hooks/useAuth";
 
 
 const Navbar = () => {
+  const {user} = useAuth()
     const navItems = (
         <>
           <li>
@@ -42,7 +44,13 @@ const Navbar = () => {
         <ul className="flex gap-2 text-xs text-white font-bold lg:text-xl lg:gap-8">
          {navItems}
         </ul>
+      {
+        user ? 
+        <img className="w-10 h-10 rounded-full border-2 border-white" src={user?.photoURL} alt="Rounded avatar"></img>
+        :
+
         <BookNowbtn/>
+      }
          </div>
       </div>
     </>

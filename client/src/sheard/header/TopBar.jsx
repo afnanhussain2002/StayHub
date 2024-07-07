@@ -1,8 +1,11 @@
 import { FaLocationDot } from "react-icons/fa6";
 import { IoIosCall } from "react-icons/io";
 import { Link } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 const TopBar = () => {
+  const {user, logOut} = useAuth()
+
   return (
     <div className="bg-white w-full font-semibold py-1">
 
@@ -15,10 +18,24 @@ const TopBar = () => {
       <IoIosCall />
         <p> (123) 456-78-910 </p>
       </div>
+     
       <div className="flex items-center gap-1 font-bold text-back-main-color text-xs lg:text-sm">
-        <Link to={'/login'}>Login |</Link>
-        <Link to={'/register'}>Register</Link>
+        {
+          user ? 
+          <>
+          <a onClick={logOut} className="cursor-pointer">Logout</a>
+          </>
+          :
+          <>
+          <Link to={'/login'}>Login |</Link>
+          <Link to={'/register'}>Register</Link>
+          
+          </>
+        }
       </div>
+   
+      
+      
       
     </div>
     </div>
