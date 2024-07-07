@@ -3,7 +3,7 @@
 const BookNowbtn = () => {
     return (
         <div>
-          <button className="bg-white px-4 py-3 font-bold text-back-main-color rounded">Book Now</button>
+          <button className="bg-white p-1 text-xs font-bold text-back-main-color rounded lg:px-4 lg:py-3 lg:text-xl">Book Now</button>
         </div>
     );
 };

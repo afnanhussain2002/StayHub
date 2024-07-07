@@ -39,7 +39,7 @@ const Navbar = () => {
          <div className="max-w-7xl flex justify-between items-center mx-auto py-3 ">
           <Logo/>
 
-        <ul className="flex gap-8 text-white font-bold">
+        <ul className="flex gap-2 text-xs text-white font-bold lg:text-xl lg:gap-8">
          {navItems}
         </ul>
         <BookNowbtn/>
