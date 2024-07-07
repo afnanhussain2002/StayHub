@@ -9,7 +9,7 @@ import { GiWineBottle } from "react-icons/gi";
 
 const MainFeatures = () => {
     return (
-        <section className="max-w-7xl mx-auto grid grid-cols-3 gap-4">
+        <section className="max-w-7xl mx-auto grid gap-4 lg:grid-cols-3">
            <div className="space-y-3">
            <BiSolidOffer className="text-4xl text-back-main-color border-2 rounded-lg border-back-main-color"/>
 
