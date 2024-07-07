@@ -1,6 +1,6 @@
 const AboutSection = () => {
   return (
-    <section className="mt-9 max-w-7xl mx-auto flex gap-6 ">
+    <section className="mt-9 max-w-7xl mx-auto flex flex-col gap-6 lg:flex-row">
       <div className="flex-1">
         <h3 className="text-back-main-color font-semibold tracking-widest">
           ABOUT US
@@ -19,7 +19,7 @@ const AboutSection = () => {
           your journey. Welcome to a world of comfort and convenience
         </p>
       </div>
-      <div className="flex-1 relative bottom-28">
+      <div className="flex-1 relative lg:bottom-28">
         <img
           src="https://ihg.scene7.com/is/image/ihg/even-hotels-eugene-5405616297-4x3"
           alt="hotel"
