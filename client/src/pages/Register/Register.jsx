@@ -4,6 +4,7 @@ import { FaGithub } from "react-icons/fa";
 import { FaBed } from "react-icons/fa6";
 import { imageUpload } from "../../api/imageUpload";
 import useAuth from "../../hooks/useAuth";
+import { errorPopup, successPopup } from "../../popups/popups";
 
 const Register = () => {
   const {createUser, updateUserProfile} = useAuth()
@@ -28,9 +29,11 @@ const Register = () => {
       // user registration
      const result = await createUser(email, password) 
      await updateUserProfile(name, profileImage)   
+     successPopup('Register SuccessFully')
 
     } catch (error) {
       console.log(error);
+      errorPopup(error.message)
     }
     
   }

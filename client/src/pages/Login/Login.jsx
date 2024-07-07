@@ -3,6 +3,9 @@ import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { FaBed } from "react-icons/fa6";
 import useAuth from "../../hooks/useAuth";
+import Swal from 'sweetalert2'
+import { errorPopup, successPopup } from "../../popups/popups";
+
 
 const Login = () => {
   const {signIn} = useAuth()
@@ -17,9 +20,11 @@ const Login = () => {
 
     try {
     await signIn(email,password)
+    successPopup('Logged In Successfully')
       // console.log(result);
     } catch (error) {
       console.log(error);
+      errorPopup(error.message)
     }
   }
   return (
