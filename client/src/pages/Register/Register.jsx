@@ -55,7 +55,7 @@ const Register = () => {
                 </label>
                 <input
                   type="text"
-                  className="border-0 px-3 py-3 placeholder-back-main-color text-black bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  className="border-0 px-3 py-3 placeholder-back-main-color text-black bg-white rounded text-sm shadow focus:outline-none focus:ring focus:ring-back-main-color w-full ease-linear transition-all duration-150"
                   placeholder="Name"
                 />
               </div>
@@ -68,7 +68,7 @@ const Register = () => {
                 </label>
                 <input
                   type="file"
-                  className="border-0 px-3 py-3 placeholder-back-main-color text-black bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  className="border-0 px-3 py-3 placeholder-back-main-color text-black bg-white rounded text-sm shadow focus:outline-none focus:ring focus:ring-back-main-color w-full ease-linear transition-all duration-150"
                   placeholder="Photo"
                 />
               </div>
@@ -81,7 +81,7 @@ const Register = () => {
                 </label>
                 <input
                   type="email"
-                  className="border-0 px-3 py-3 placeholder-back-main-color text-black bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  className="border-0 px-3 py-3 placeholder-back-main-color text-black bg-white rounded text-sm shadow focus:outline-none focus:ring focus:ring-back-main-color w-full ease-linear transition-all duration-150"
                   placeholder="Email"
                 />
               </div>
@@ -94,7 +94,7 @@ const Register = () => {
                 </label>
                 <input
                   type="password"
-                  className="border-0 px-3 py-3 placeholder-back-main-color text-black bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  className="border-0 px-3 py-3 placeholder-back-main-color text-black bg-white rounded text-sm shadow focus:outline-none focus:ring focus:ring-back-main-color w-full ease-linear transition-all duration-150"
                   placeholder="Password"
                 />
               </div>
