@@ -9,13 +9,13 @@ const Footer = () => {
             <div className="max-w-7xl mx-auto grid grid-cols-3 gap-5 py-14">
               <div className='space-y-3'>
                 <Logo/>
-                <h3 className='text-2xl text-white'>+880 1747824474</h3>
+                <h3 className='text-xl text-white lg:text-2xl'>+880 1747824474</h3>
                 <div>
 
                 <p className='text-white'>Golapganj 3160, Sylhet, Bangladesh</p>
                 <p className='text-white'>info.stayhub@gmail.com</p>
                 </div>
-                <div className='text-white text-2xl flex gap-2'>
+                <div className='text-white text-xl flex gap-2 lg:text-2xl'>
                   <a href="#"><FaFacebook/></a>
                   <a href="#"><FaTwitter/></a>
                   <a href="#"><FaLinkedin/></a>
@@ -35,19 +35,19 @@ const Footer = () => {
                 </div>
               </div>
               <div className='space-y-3'>
-              <h3 className='text-white text-2xl'>Subscribe our newlatester</h3>
+              <h3 className='text-white text-xl lg:text-2xl'>Subscribe our newlatester</h3>
               <div>
-                <form action="#" className='flex'>
+                <form action="#" className='flex flex-col lg:flex-row'>
 
-                <input type="email" name="" id="" placeholder='Your E-mail Address' className='px-3 py-2'/>
-                <button className='bg-back-main-color px-3 py-2 font-bold text-white  relative right-1'>Subscraibe</button>
+                <input type="email" name="" id="" placeholder='Your E-mail Address' className=' p-1 lg:px-3 lg:py-2 placeholder:text-xs'/>
+                <button className='bg-back-main-color text-xs font-bold p-1 text-white relative right-1 lg:px-3 py-2'>Subscribe</button>
                 </form>
               </div>
               </div>
             </div>
             <div className='max-w-7xl mx-auto'>
             <hr />
-            <div className='flex justify-between text-white py-2'>
+            <div className='flex justify-between text-xs text-white py-2 lg:text-sm'>
 
                 <p>Copyright © 2024 All rights reserved made by StayHub</p>
                 <p>Terms Of Use | Privacy Policy</p>
