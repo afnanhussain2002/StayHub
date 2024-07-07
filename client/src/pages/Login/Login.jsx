@@ -2,8 +2,26 @@ import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { FaBed } from "react-icons/fa6";
+import useAuth from "../../hooks/useAuth";
 
 const Login = () => {
+  const {signIn} = useAuth()
+  const handleLoginBtn = async e =>{
+    e.preventDefault()
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value
+
+    const userInfo = {email,password}
+    console.log(userInfo);
+
+    try {
+    await signIn(email,password)
+      // console.log(result);
+    } catch (error) {
+      console.log(error);
+    }
+  }
   return (
     <>
       <section className="bg-[url('https://i.ibb.co/qL68xm9/comfortable-modern-bedroom-with-elegant-decoration-lighting-generative-ai-188544-7715.jpg')] bg-cover h-screen flex items-center justify-center">
@@ -45,7 +63,7 @@ const Login = () => {
               <div className="text-blueGray-400 text-center mb-3 font-bold">
                 <small>Or sign in with credentials</small>
               </div>
-              <form>
+              <form onSubmit={handleLoginBtn}>
                 <div className="relative w-full mb-3">
                   <label
                     className="block uppercase text-black text-xs font-bold mb-2"
@@ -55,6 +73,7 @@ const Login = () => {
                   </label>
                   <input
                     type="email"
+                    name="email"
                     className="border-0 px-3 py-3 placeholder-back-main-color text-black bg-white rounded text-sm shadow focus:outline-none focus:ring focus:ring-back-main-color w-full ease-linear transition-all duration-150"
                     placeholder="Email"
                   />
@@ -68,6 +87,7 @@ const Login = () => {
                   </label>
                   <input
                     type="password"
+                    name="password"
                     className="border-0 px-3 py-3 placeholder-back-main-color text-black bg-white rounded text-sm shadow focus:outline-none focus:ring focus:ring-back-main-color w-full ease-linear transition-all duration-150"
                     placeholder="Password"
                   />
@@ -83,7 +103,7 @@ const Login = () => {
                 <div className="text-center mt-6">
                   <button
                     className="bg-back-main-color text-white active:bg-black text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
-                    type="button"
+                    type="submit"
                   >
                     {" "}
                     Sign In{" "}

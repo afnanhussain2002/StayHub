@@ -24,14 +24,10 @@ const Register = () => {
       // upload image
       const image = await imageUpload(photo)
       const profileImage = image?.data?.display_url
-      console.log(image);
-      console.log(image?.data);
-
+      
       // user registration
      const result = await createUser(email, password) 
      await updateUserProfile(name, profileImage)   
-      
-
 
     } catch (error) {
       console.log(error);
