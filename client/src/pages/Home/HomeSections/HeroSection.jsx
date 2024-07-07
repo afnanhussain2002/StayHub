@@ -6,9 +6,9 @@ const HeroSection = () => {
             <div className="w-full h-full backdrop-brightness-50">
             <div className="max-w-7xl mx-auto">
             </div>
-               <div className="text-center text-white font-semibold py-52">
+               <div className="text-center py-20 text-white font-semibold lg:py-52">
                <h3 className="pt-14 tracking-widest">WELCOME TO STAYHUB</h3>
-               <h1 className="text-6xl max-w-5xl mx-auto py-8">Your Gateway to Exceptional Stays and Seamless Booking Experiences</h1>
+               <h1 className="text-4xl max-w-5xl mx-auto py-8 lg:text-6xl">Your Gateway to Exceptional Stays and Seamless Booking Experiences</h1>
                </div>
             </div>
         </section>
