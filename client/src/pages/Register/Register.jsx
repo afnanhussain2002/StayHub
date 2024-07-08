@@ -5,7 +5,7 @@ import { FaBed } from "react-icons/fa6";
 import { imageUpload } from "../../api/imageUpload";
 import useAuth from "../../hooks/useAuth";
 import { errorPopup, successPopup } from "../../popups/popups";
-import { saveUserDB } from "../../api/auth";
+import { getToken, saveUserDB } from "../../api/auth";
 
 const Register = () => {
   const {createUser, updateUserProfile} = useAuth()
@@ -32,7 +32,9 @@ const Register = () => {
      await updateUserProfile(name, profileImage)   
     //  save user info on database
    const saveData = await saveUserDB(result.user)
-  
+   
+   await getToken(result?.user?.email)
+
      successPopup('Register SuccessFully')
 
     } catch (error) {
