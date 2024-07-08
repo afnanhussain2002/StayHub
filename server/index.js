@@ -1,8 +1,8 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const jwt = require('jsonwebtoken');
-const cookieParser = require('cookie-parser');
+const jwt = require("jsonwebtoken");
+const cookieParser = require("cookie-parser");
 require("dotenv").config();
 const { MongoClient, ServerApiVersion } = require("mongodb");
 const port = process.env.PORT || 5000;
@@ -36,37 +36,38 @@ async function run() {
 
     // auth related api
 
-    // jwt token 
-    app.post('/jwt', async(req,res) =>{
+    // jwt token
+    app.post("/jwt", async (req, res) => {
       const user = req.body;
-      console.log('I Need Jwt', user);
+      console.log("I Need Jwt", user);
       const token = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {
-        expiresIn:'365d'
-      })
-      res.cookie('token', token, {
-        httpOnly:true,
-        secure: process.env.NODE_ENV === 'production',
-        sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'strict'
-      })
-      .send({success:true})
-    })
+        expiresIn: "365d",
+      });
+      res
+        .cookie("token", token, {
+          httpOnly: true,
+          secure: process.env.NODE_ENV === "production",
+          sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
+        })
+        .send({ success: true });
+    });
 
     // clear cookie after user logout
 
-    app.get('/logout', async(req, res) =>{
-     try {
-      res.clearCookie('token',{
-        maxAge:0,
-         secure: process.env.NODE_ENV === 'production',
-        sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'strict'
-      })
-      .send({success:true})
-     } catch (error) {
-      console.log(error);
-      res.status(500).send(error)
-     }
-    })
-
+    app.get("/logout", async (req, res) => {
+      try {
+        res
+          .clearCookie("token", {
+            maxAge: 0,
+            secure: process.env.NODE_ENV === "production",
+            sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
+          })
+          .send({ success: true });
+      } catch (error) {
+        console.log(error);
+        res.status(500).send(error);
+      }
+    });
 
     // save user data on database
     app.post("/user", async (req, res) => {
