@@ -3,7 +3,6 @@ import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { FaBed } from "react-icons/fa6";
 import useAuth from "../../hooks/useAuth";
-import Swal from 'sweetalert2'
 import { errorPopup, successPopup } from "../../popups/popups";
 
 

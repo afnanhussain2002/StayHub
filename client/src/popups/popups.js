@@ -9,7 +9,7 @@ export const successPopup = (message) =>{
         iconColor:'#7E2553',
         title: message,
         showConfirmButton: false,
-        timer: 1500
+        timer: 2500
       });
 }
 // error popup
@@ -21,6 +21,6 @@ export const errorPopup = (message) =>{
         iconColor:'#7E2553',
         title: message,
         showConfirmButton: false,
-        timer: 1500
+        timer: 2500
       });
 }
