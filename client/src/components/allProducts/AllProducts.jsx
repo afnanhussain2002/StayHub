@@ -17,7 +17,7 @@ const AllProducts = () => {
       
         <Title title={'Best Places'}/>
 
-        <div className="">
+        <div className="flex justify-center">
             {rooms.map(room => <Product key={room._id} room={room}></Product>)}
         </div>
      
