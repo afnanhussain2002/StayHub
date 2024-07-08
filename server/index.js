@@ -35,6 +35,8 @@ async function run() {
     const userCollection = client.db("stayHubDB").collection("hubUser");
 
     // auth related api
+
+    // jwt token 
     app.post('/jwt', async(req,res) =>{
       const user = req.body;
       console.log('I Need Jwt', user);
@@ -48,6 +50,23 @@ async function run() {
       })
       .send({success:true})
     })
+
+    // clear cookie after user logout
+
+    app.get('/logout', async(req, res) =>{
+     try {
+      res.clearCookie('token',{
+        maxAge:0,
+         secure: process.env.NODE_ENV === 'production',
+        sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'strict'
+      })
+      .send({success:true})
+     } catch (error) {
+      console.log(error);
+      res.status(500).send(error)
+     }
+    })
+
 
     // save user data on database
     app.post("/user", async (req, res) => {
