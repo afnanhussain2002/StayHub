@@ -1,3 +1,4 @@
+import AllCategories from "../../components/AllCategories/AllCategories";
 import AboutSection from "./HomeSections/AboutSection";
 import HeroSection from "./HomeSections/HeroSection";
 import MainFeatures from "./HomeSections/MainFeatures";
@@ -8,7 +9,10 @@ const Home = () => {
         <>
             <HeroSection/>
             <AboutSection/>
-            <MainFeatures/>
+            {/* <MainFeatures/> */}
+            <div className="bg-back-main-color">
+            <AllCategories/>
+            </div>
         </>
     );
 };
