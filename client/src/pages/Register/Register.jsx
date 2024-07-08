@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { FaBed } from "react-icons/fa6";
@@ -6,9 +6,11 @@ import { imageUpload } from "../../api/imageUpload";
 import useAuth from "../../hooks/useAuth";
 import { errorPopup, successPopup } from "../../popups/popups";
 import { getToken, saveUserDB } from "../../api/auth";
+import SocialSign from "../../components/SocialSign/SocialSign";
 
 const Register = () => {
   const {createUser, updateUserProfile} = useAuth()
+  const navigate = useNavigate()
   const handleRegisterBtn = async e =>{
     e.preventDefault()
     console.log('clicked');
@@ -40,6 +42,8 @@ const Register = () => {
     } catch (error) {
       console.log(error);
       errorPopup(error.message)
+    }finally{
+      navigate('/')
     }
     
   }
@@ -62,22 +66,7 @@ const Register = () => {
                 Sign in with
               </h6>
             </div>
-            <div className="btn-wrapper text-center">
-              <button
-                className="bg-white active:bg-blueGray-50 text-blueGray-700 px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150"
-                type="button"
-              >
-                <FaGithub className="w-5 mr-1" />
-                Github
-              </button>
-              <button
-                className="bg-white active:bg-blueGray-50 text-blueGray-700 px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150"
-                type="button"
-              >
-                <FcGoogle className="w-5 mr-1" />
-                Google{" "}
-              </button>
-            </div>
+          <SocialSign/>
             <hr className="mt-6 border-b-1 border-back-main-color" />
           </div>
           <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
