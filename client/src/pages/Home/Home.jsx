@@ -1,4 +1,5 @@
 import AllCategories from "../../components/AllCategories/AllCategories";
+import ImageBG from "../../components/reUseComponents/imageBG";
 import AboutSection from "./HomeSections/AboutSection";
 import HeroSection from "./HomeSections/HeroSection";
 import MainFeatures from "./HomeSections/MainFeatures";
@@ -10,9 +11,11 @@ const Home = () => {
             <HeroSection/>
             <AboutSection/>
             {/* <MainFeatures/> */}
-            <div className="bg-back-main-color">
+            <ImageBG>
             <AllCategories/>
-            </div>
+
+            </ImageBG>
+          
         </>
     );
 };
