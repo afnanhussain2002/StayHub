@@ -1,6 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
-import { FcGoogle } from "react-icons/fc";
-import { FaGithub } from "react-icons/fa";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaBed } from "react-icons/fa6";
 import useAuth from "../../hooks/useAuth";
 import { errorPopup, successPopup } from "../../popups/popups";
@@ -10,6 +8,8 @@ import SocialSign from "../../components/SocialSign/SocialSign";
 const Login = () => {
   const {signIn} = useAuth()
   const navigate = useNavigate()
+  const location = useLocation()
+ const from = location?.state?.from?.pathname
   const handleLoginBtn = async e =>{
     e.preventDefault()
     const form = e.target;
@@ -27,7 +27,7 @@ const Login = () => {
       console.log(error);
       errorPopup(error.message)
     }finally{
-      navigate('/')
+      navigate(from, {replace:true})
     }
   }
   return (

@@ -6,6 +6,7 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import AboutUs from "../pages/AboutUs/AboutUs";
 import AddRooms from "../components/AddRooms/AddRooms";
+import PrivateRoutes from "./PrivateRoutes";
 
 
 const router = createBrowserRouter([
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
             },
             {
                 path:'/addRooms',
-                element:<AddRooms/>
+                element:<PrivateRoutes> <AddRooms/> </PrivateRoutes>
             }
         ],
         
