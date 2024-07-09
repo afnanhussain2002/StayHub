@@ -5,7 +5,7 @@ import useAuth from "../../hooks/useAuth";
 import { successPopup } from "../../popups/popups";
 
 const RoomAddForms = () => {
-  const {user} = useAuth()
+  const { user } = useAuth();
   const handleHotelAdd = async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -22,10 +22,10 @@ const RoomAddForms = () => {
     const roomImage4 = form.roomImage4.files[0];
     const hotelDescription = form.hotelDescription.value;
     const host = {
-      name:user?.displayName,
+      name: user?.displayName,
       image: user?.photoURL,
-      email: user?.email
-    }
+      email: user?.email,
+    };
 
     // const banner = await imageUpload(bannerImg)
 
@@ -49,27 +49,28 @@ const RoomAddForms = () => {
       roomImg3: roomImg3?.data?.display_url,
       roomImg4: roomImg4?.data?.display_url,
       hotelDescription,
-      host
+      host,
     };
 
     console.log(hotelInfo);
     try {
-      const data = await addHotel(hotelInfo)
-      successPopup('Hotel Added Successfully')
-
+      const data = await addHotel(hotelInfo);
+      successPopup("Hotel Added Successfully");
     } catch (error) {
       console.log(error);
     }
   };
   return (
-    <div className="p-8 rounded border border-gray-200">
-      <h1 className="font-medium text-3xl">Fill Up With Your Hotel Info</h1>
+    <div className="p-8 rounded-lg border border-gray-200 bg-back-main-color mt-10">
+      <h1 className="font-bold text-white text-3xl">
+        Fill Up With Your Hotel Info
+      </h1>
 
       <form onSubmit={handleHotelAdd}>
         <div className="mt-8 grid lg:grid-cols-2 gap-4">
           {/* Hotel name */}
           <div>
-            <label className="text-sm text-gray-700 block mb-1 font-medium">
+            <label className="text-sm text-white block mb-1 font-bold">
               Hotel Name
             </label>
             <input
@@ -82,7 +83,7 @@ const RoomAddForms = () => {
           </div>
           {/* Hotel Location */}
           <div>
-            <label className="text-sm text-gray-700 block mb-1 font-medium">
+            <label className="text-sm text-white block mb-1 font-bold">
               Hotel Location
             </label>
             <input
@@ -95,7 +96,7 @@ const RoomAddForms = () => {
           </div>
           {/* Total Rooms */}
           <div>
-            <label className="text-sm text-gray-700 block mb-1 font-medium">
+            <label className="text-sm text-white block mb-1 font-bold">
               Total Rooms
             </label>
             <input
@@ -109,7 +110,7 @@ const RoomAddForms = () => {
           {/* single and double rooms */}
           <div className="flex justify-between">
             <div>
-              <label className="text-sm text-gray-700 block mb-1 font-medium">
+              <label className="text-sm text-white block mb-1 font-bold">
                 Double Bed Rooms
               </label>
               <input
@@ -121,7 +122,7 @@ const RoomAddForms = () => {
               />
             </div>
             <div>
-              <label className="text-sm text-gray-700 block mb-1 font-medium">
+              <label className="text-sm text-white block mb-1 font-bold">
                 Single Bed Rooms
               </label>
               <input
@@ -137,8 +138,8 @@ const RoomAddForms = () => {
           {/* categories */}
 
           <div className="flex flex-col">
-            <label className="text-sm text-gray-700 block mb-1 font-medium">
-              Hotel Besides On:
+            <label className="text-sm text-white block mb-1 font-bold">
+              Hotel Besides On
             </label>
             <select
               id="category"
@@ -156,7 +157,7 @@ const RoomAddForms = () => {
 
           {/* Banner Image */}
           <div>
-            <label className="text-sm text-gray-700 block mb-1 font-medium">
+            <label className="text-sm text-white block mb-1 font-bold">
               Banner Image
             </label>
             <input
@@ -169,7 +170,7 @@ const RoomAddForms = () => {
 
           {/* Rooms Images */}
           <div>
-            <label className="text-sm text-gray-700 block mb-1 font-medium">
+            <label className="text-sm text-white block mb-1 font-bold">
               Add Images Of Hotel Rooms
             </label>
             <div className="flex bg-gray-100 border border-gray-200 rounded py-1 px-3 focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full text-xs">
@@ -182,8 +183,8 @@ const RoomAddForms = () => {
         </div>
         {/* description */}
 
-        <div>
-          <label className="text-sm text-gray-700 block mb-1 font-medium">
+        <div className="mt-4">
+          <label className="text-sm text-white block mb-1 font-bold">
             Hotel Description
           </label>
           <textarea
@@ -198,13 +199,9 @@ const RoomAddForms = () => {
         <div className="space-x-4 mt-8">
           <button
             type="submit"
-            className="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 active:bg-blue-700 disabled:opacity-50"
+            className="py-2 px-4 bg-white text-back-main-color font-bold rounded"
           >
-            Save
-          </button>
-
-          <button className="py-2 px-4 bg-white border border-gray-200 text-gray-600 rounded hover:bg-gray-100 active:bg-gray-200 disabled:opacity-50">
-            Cancel
+            Submit Hotel
           </button>
         </div>
       </form>
