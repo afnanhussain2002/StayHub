@@ -88,7 +88,12 @@ async function run() {
     });
 
 
+// get all hotels 
 
+app.get('/hotels', async(req,res) =>{
+     const result = await hotelsCollection.find().toArray()
+     res.send(result)
+})
 
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
