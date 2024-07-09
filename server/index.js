@@ -33,7 +33,7 @@ async function run() {
     // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
     const userCollection = client.db("stayHubDB").collection("hubUser");
-    const hotelsCollection = client.db("stayHubDB").collection("hotel")
+    const hotelsCollection = client.db("stayHubDB").collection("hotel");
 
     // auth related api
 
@@ -79,17 +79,23 @@ async function run() {
       });
       res.send(result);
     });
+    
+     // post hotels api
+     app.post("/hotels", async (req, res) => {
+      const hotel = req.body;
+      const result = await hotelsCollection.insertOne(hotel);
+      res.send(result);
+    });
+
+
+
+
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
     console.log(
       "Pinged your deployment. You successfully connected to MongoDB!"
     );
-    // post hotels api
-    app.post('/hotels', async(req, res) =>{
-      const hotel = req.body;
-      const result = await hotelsCollection.insertOne(hotel)
-      res.send(result)
-    })
+   
   } finally {
     // Ensures that the client will close when you finish/error
     // await client.close();
