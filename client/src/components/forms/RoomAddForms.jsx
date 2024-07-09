@@ -3,9 +3,12 @@ import { addHotel } from "../../api/hotels";
 import { imageUpload } from "../../api/imageUpload";
 import useAuth from "../../hooks/useAuth";
 import { successPopup } from "../../popups/popups";
+import Loader from "../reUseComponents/Loader";
+/* import { PiSpinnerBallFill } from "react-icons/pi";
+console.log(PiSpinnerBallFill); */
 
 const RoomAddForms = () => {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
   const handleHotelAdd = async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -56,6 +59,7 @@ const RoomAddForms = () => {
     try {
       const data = await addHotel(hotelInfo);
       successPopup("Hotel Added Successfully");
+      form.reset()
     } catch (error) {
       console.log(error);
     }
@@ -164,7 +168,7 @@ const RoomAddForms = () => {
               type="file"
               name="bannerImg"
               id="bannerImg"
-              className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full text-xs file:bg-back-main-color file:text-white "
+              className="bg-gray-100 border border-gray-200 rounded block focus:ring-blue-500 focus:border-blue-500 text-back-main-color w-full text-xs cursor-pointer file:bg-back-main-color file:text-white file:border-none file:p-1 "
             />
           </div>
 
@@ -201,7 +205,8 @@ const RoomAddForms = () => {
             type="submit"
             className="py-2 px-4 bg-white text-back-main-color font-bold rounded"
           >
-            Submit Hotel
+            {loading ? 'Adding...' : 'Submit Hotel'}
+           
           </button>
         </div>
       </form>
