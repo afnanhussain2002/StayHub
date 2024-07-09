@@ -17,17 +17,10 @@ const HotelsCard = ({ hotel }) => {
          {hotel.hotelName}
         </h3>
        
-        <div className="h-28">
-          <span className="line-clamp-4 py-2 text-sm font-light leading-relaxed">
-            Miles Morales catapults across the Multiverse, where he encounters a
-            team of Spider-People charged with protecting its very existence.
-            When the heroes clash on how to handle a new threat, Miles must
-            redefine what it means to be a hero.
-          </span>
-        </div>
+    
         <div className="grid-cols-2 flex group justify-between">
           <div className="font-black flex flex-col">
-            <span className="text-yellow-500 text-xl">IMDB SCORE</span>
+            <span className="text-yellow-500 text-xl">Rating</span>
             <span className="text-3xl flex gap-x-1 items-center group-hover:text-yellow-600">
               8.8
               <svg
