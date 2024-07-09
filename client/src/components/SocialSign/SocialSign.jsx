@@ -1,8 +1,8 @@
-import React from 'react';
+
 import { FaFacebook } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 import useAuth from '../../hooks/useAuth';
-import { getToken } from '../../api/auth';
+import { getToken, saveUserDB } from '../../api/auth';
 import { successPopup } from '../../popups/popups';
 import { useNavigate } from 'react-router-dom';
 
@@ -15,6 +15,7 @@ const SocialSign = () => {
 
         try {
             const result = await signInWithGoogle()
+            const saveData = await saveUserDB(result?.user)
             await getToken(result?.user?.email)
             successPopup('Google Sign Successfully')
             
