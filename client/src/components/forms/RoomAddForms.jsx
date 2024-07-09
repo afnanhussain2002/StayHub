@@ -1,12 +1,36 @@
+
 import { categories } from "../../../public/data/categories";
+import { imageUpload } from "../../api/imageUpload";
 
 
 const RoomAddForms = () => {
+
+  const handleHotelAdd = async e =>{
+    e.preventDefault()
+    const form = e.target;
+    const hotelName = form.hotelName.value;
+    const hotelLocation = form.hotelLocation.value;
+    const totalRooms = form.totalRooms.value;
+    const doubleBed = form.doubleBed.value;
+    const singleBed = form.singleBed.value;
+    const category = form.category.value;
+    const bannerImg = form.bannerImg.files[0]
+    // const banner = await imageUpload(bannerImg)
+    const roomsImages = form.roomsImages.files;
+    // const rooms = await imageUpload(roomsImages)
+    const hotelDescription = form.hotelDescription.value
+
+    const hotelInfo = {hotelName, hotelLocation,totalRooms, doubleBed, singleBed,category, bannerImg, roomsImages, hotelDescription}
+
+    // console.log(hotelInfo);
+    console.log(roomsImages);
+
+   }
     return (
         <div className="p-8 rounded border border-gray-200">
   <h1 className="font-medium text-3xl">Fill Up With Your Hotel Info</h1>
 
-  <form>
+  <form onSubmit={handleHotelAdd}>
     <div className="mt-8 grid lg:grid-cols-2 gap-4">
       {/* Hotel name */}
       <div>
@@ -21,7 +45,7 @@ const RoomAddForms = () => {
 {/* Total Rooms */}
       <div>
         <label  className="text-sm text-gray-700 block mb-1 font-medium">Total Rooms</label>
-        <input type="number" name="totalRoom" id="job" className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full" placeholder="Total rooms in Hotel " />
+        <input type="number" name="totalRooms" id="totalRooms" className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full" placeholder="Total rooms in Hotel " />
       </div>
  {/* single and double rooms */}
       <div className="flex justify-between">
@@ -51,19 +75,25 @@ const RoomAddForms = () => {
       </div>
       {/* Hotel images */}
 
-      <div className="flex gap-2">
         {/* Banner Image */}
-      <div>
+        <div>
         <label className="text-sm text-gray-700 block mb-1 font-medium">Banner Image</label>
         <input type="file" name="bannerImg" id="bannerImg" className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full text-xs" />
       </div>
-      {/* Rooms images */}
-      <div>
-        <label className="text-sm text-gray-700 block mb-1 font-medium">Rooms Images</label>
-        <input type="file" multiple name="roomImages" id="roomsImages" className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full text-xs" />
-      </div>
+
+        {/* Rooms Images */}
+        <div>
+        <label className="text-sm text-gray-700 block mb-1 font-medium">Add Images Of Hotel Rooms</label>
+      <div className="flex bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full text-xs">
+      
+        <input type="file" name="roomImage1"/>
+        <input type="file" name="roomImage2"/>
+        <input type="file" name="roomImag3"/>
+        <input type="file" name="roomImag4"/>
 
       </div> 
+
+        </div>
     </div>
       {/* description */}
 
