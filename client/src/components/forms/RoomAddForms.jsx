@@ -164,7 +164,7 @@ const RoomAddForms = () => {
               type="file"
               name="bannerImg"
               id="bannerImg"
-              className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full text-xs"
+              className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full text-xs file:bg-back-main-color file:text-white "
             />
           </div>
 
@@ -173,11 +173,11 @@ const RoomAddForms = () => {
             <label className="text-sm text-white block mb-1 font-bold">
               Add Images Of Hotel Rooms
             </label>
-            <div className="flex bg-gray-100 border border-gray-200 rounded py-1 px-3 focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full text-xs">
-              <input type="file" name="roomImage1" />
-              <input type="file" name="roomImage2" />
-              <input type="file" name="roomImage3" />
-              <input type="file" name="roomImage4" />
+            <div className="flex flex-col gap-1 bg-gray-100 border border-gray-200 rounded py-1 px-3 focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full text-xs">
+              <input type="file" name="roomImage1" className="file:bg-back-main-color file:text-white file:rounded file:border-none"/>
+              <input type="file" name="roomImage2" className="file:bg-back-main-color file:text-white file:rounded file:border-none"/>
+              <input type="file" name="roomImage3" className="file:bg-back-main-color file:text-white file:rounded file:border-none"/>
+              <input type="file" name="roomImage4" className="file:bg-back-main-color file:text-white file:rounded file:border-none"/>
             </div>
           </div>
         </div>
