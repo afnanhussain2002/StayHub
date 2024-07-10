@@ -4,7 +4,7 @@ const cors = require("cors");
 const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
 require("dotenv").config();
-const { MongoClient, ServerApiVersion } = require("mongodb");
+const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 const port = process.env.PORT || 5000;
 
 // middleware
@@ -79,28 +79,34 @@ async function run() {
       });
       res.send(result);
     });
-    
-     // post hotels api
-     app.post("/hotels", async (req, res) => {
+
+    // post hotels api
+    app.post("/hotels", async (req, res) => {
       const hotel = req.body;
       const result = await hotelsCollection.insertOne(hotel);
       res.send(result);
     });
 
+    // get all hotels
 
-// get all hotels 
+    app.get("/hotels", async (req, res) => {
+      const result = await hotelsCollection.find().toArray();
+      res.send(result);
+    });
 
-app.get('/hotels', async(req,res) =>{
-     const result = await hotelsCollection.find().toArray()
-     res.send(result)
-})
+    // get a single hotel
+    app.get('/hotels/:id', async(req,res) =>{
+      const id = req.params.id;
+      const query = {_id: new ObjectId(id)}
+      const result = await hotelsCollection.findOne(query)
+      res.send(result)
+    });
 
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
     console.log(
       "Pinged your deployment. You successfully connected to MongoDB!"
     );
-   
   } finally {
     // Ensures that the client will close when you finish/error
     // await client.close();
