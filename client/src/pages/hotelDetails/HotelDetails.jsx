@@ -8,6 +8,8 @@ const HotelDetails = () => {
   const { loading } = useAuth();
   const hotel = useLoaderData();
   console.log(hotel);
+  const doubleBedPrice = parseInt(hotel.doubleBedPrice)
+  const singleBedPrice = parseInt(hotel.singleBedPrice)
   const availableSingleRooms = parseInt(hotel.singleBed)
   const availableCoupleRooms = parseInt(hotel.doubleBed)
   const availableRooms = availableCoupleRooms + availableSingleRooms
@@ -43,21 +45,31 @@ const HotelDetails = () => {
       </section>
 
       <Container>
+        {/* hotel name */}
         <div>
           <Title title={hotel.hotelName} left/>
         </div>
 
         <div className="mt-12"> 
+            {/* hotel description */}
             <Title title={'About Hotel'} small left/>
 
             <p className="text-xl">{hotel.hotelDescription}</p>
         </div>
-
-        <div className="mt-8 space-y-1"> 
+        {/* total rooms */}
+        <Title title={'Total Rooms'} small left/>
+        <div className="mt-2 space-y-1"> 
 
           <h3 className="font-bold text-2xl">Available Rooms: {availableRooms}</h3>
           <h3 className="font-bold text-2xl">Available Couple Rooms: {availableCoupleRooms}</h3>
           <h3 className="font-bold text-2xl">Available Single Rooms: {availableSingleRooms}</h3>
+        </div>
+
+        <Title title={'Price For Per Night'} small left/>
+        <div className="mt-2 space-y-1"> 
+
+          <h3 className="font-bold text-2xl"> Couple Rooms Price: ${doubleBedPrice}</h3>
+          <h3 className="font-bold text-2xl"> Single Rooms Price: ${singleBedPrice}</h3>
         </div>
       </Container>
     </>
