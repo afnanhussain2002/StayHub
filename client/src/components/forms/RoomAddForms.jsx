@@ -3,7 +3,7 @@ import { addHotel } from "../../api/hotels";
 import { imageUpload } from "../../api/imageUpload";
 import useAuth from "../../hooks/useAuth";
 import { successPopup } from "../../popups/popups";
-import Loader from "../reUseComponents/Loader";
+
 /* import { PiSpinnerBallFill } from "react-icons/pi";
 console.log(PiSpinnerBallFill); */
 
@@ -18,6 +18,8 @@ const RoomAddForms = () => {
     const doubleBed = form.doubleBed.value;
     const singleBed = form.singleBed.value;
     const category = form.category.value;
+    const doubleBedPrice = form.doubleBedPrice.value;
+    const singleBedPrice = form.singleBedPrice.value;
     const bannerImg = form.bannerImg.files[0];
     const roomImage1 = form.roomImage1.files[0];
     const roomImage2 = form.roomImage2.files[0];
@@ -46,6 +48,8 @@ const RoomAddForms = () => {
       doubleBed,
       singleBed,
       category,
+      singleBedPrice,
+      doubleBedPrice,
       bannerImage,
       roomImg2: roomImg2?.data?.display_url,
       roomImg1: roomImg1?.data?.display_url,
@@ -192,8 +196,8 @@ const RoomAddForms = () => {
               </label>
               <input
                 type="number"
-                name="doubleBed"
-                id="doubleBed"
+                name="doubleBedPrice"
+                id="doubleBedPrice"
                 className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full"
                 placeholder="Per night double bed"
               />
@@ -204,8 +208,8 @@ const RoomAddForms = () => {
               </label>
               <input
                 type="number"
-                name="singleBed"
-                id="singleBed"
+                name="singleBedPrice"
+                id="singleBedPrice"
                 className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full"
                 placeholder="Per night single bed"
               />
