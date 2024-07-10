@@ -12,7 +12,7 @@ const Home = () => {
             <HeroSection/>
             <AboutSection/>
             {/* <MainFeatures/> */}
-            <ImageBG image={"[url('https://i.ibb.co/74Vr28t/3d-rendering-beautiful-luxury-bedroom-suite-hotel-with-tv-105762-2301.jpg')]"}>
+            <ImageBG>
             <AllCategories/>
             </ImageBG>
             <GetAllHotels/>
