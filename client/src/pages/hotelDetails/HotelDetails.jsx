@@ -3,16 +3,19 @@ import useAuth from "../../hooks/useAuth";
 import Loader from "../../components/reUseComponents/Loader";
 import Title from "../../components/reUseComponents/Title";
 import Container from "../../components/reUseComponents/Container";
+import BookingsDatePickerFrom from "../../components/DatePicker/DatePicker";
+import BookingDatePickerTo from "../../components/DatePicker/BookingDatePickerTo";
+
 
 const HotelDetails = () => {
   const { loading } = useAuth();
   const hotel = useLoaderData();
   console.log(hotel);
-  const doubleBedPrice = parseInt(hotel.doubleBedPrice)
-  const singleBedPrice = parseInt(hotel.singleBedPrice)
-  const availableSingleRooms = parseInt(hotel.singleBed)
-  const availableCoupleRooms = parseInt(hotel.doubleBed)
-  const availableRooms = availableCoupleRooms + availableSingleRooms
+  const doubleBedPrice = parseInt(hotel.doubleBedPrice);
+  const singleBedPrice = parseInt(hotel.singleBedPrice);
+  const availableSingleRooms = parseInt(hotel.singleBed);
+  const availableCoupleRooms = parseInt(hotel.doubleBed);
+  const availableRooms = availableCoupleRooms + availableSingleRooms;
   if (loading) return <Loader />;
   return (
     <>
@@ -47,37 +50,59 @@ const HotelDetails = () => {
       <Container>
         {/* hotel name */}
         <div>
-          <Title title={hotel.hotelName} left/>
-          <h3 className="font-bold text-2xl">Location: {hotel.hotelLocation}</h3>
+          <Title title={hotel.hotelName} left />
+          <h3 className="font-bold text-2xl">
+            Location: {hotel.hotelLocation}
+          </h3>
         </div>
 
-        <div className="mt-12"> 
-            {/* hotel description */}
-            <Title title={'About Hotel'} small left/>
+        <div className="mt-12">
+          {/* hotel description */}
+          <Title title={"About Hotel"} small left />
 
-            <p className="text-xl">{hotel.hotelDescription}</p>
+          <p className="text-xl">{hotel.hotelDescription}</p>
         </div>
         {/* total rooms */}
-        <Title title={'Total Rooms'} small left/>
-        <div className="mt-2 space-y-1"> 
-
-          <h3 className="font-bold text-2xl">Available Rooms: {availableRooms}</h3>
-          <h3 className="font-bold text-2xl">Available Couple Rooms: {availableCoupleRooms}</h3>
-          <h3 className="font-bold text-2xl">Available Single Rooms: {availableSingleRooms}</h3>
+        <Title title={"Total Rooms"} small left />
+        <div className="mt-2 space-y-1">
+          <h3 className="font-bold text-2xl">
+            Available Rooms: {availableRooms}
+          </h3>
+          <h3 className="font-bold text-2xl">
+            Available Couple Rooms: {availableCoupleRooms}
+          </h3>
+          <h3 className="font-bold text-2xl">
+            Available Single Rooms: {availableSingleRooms}
+          </h3>
         </div>
 
-        <Title title={'Price For Per Night'} small left/>
-        <div className="mt-2 space-y-1"> 
-
-          <h3 className="font-bold text-2xl"> Couple Rooms Price: ${doubleBedPrice}</h3>
-          <h3 className="font-bold text-2xl"> Single Rooms Price: ${singleBedPrice}</h3>
+        <Title title={"Price For Per Night"} small left />
+        <div className="mt-2 space-y-1">
+          <h3 className="font-bold text-2xl">
+            {" "}
+            Couple Rooms Price: ${doubleBedPrice}
+          </h3>
+          <h3 className="font-bold text-2xl">
+            {" "}
+            Single Rooms Price: ${singleBedPrice}
+          </h3>
         </div>
 
-        <div>
-            <Title small title={'Book Now'} left/>
+          <Title small title={"Book Now"} left />
+        <form className="flex gap-2 justify-center items-center bg-back-main-color w-2/3 px-2 py-5 rounded-lg">
+          <div className="flex items-center gap-2">
+            <p className="font-bold text-2xl">Start Date</p>
+     {/*   <BookingsDatePickerFrom/> */}
+     <input type="date" name="startDate" className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 "/>
 
-            
-        </div>
+          </div>
+          <div className="flex items-center gap-2 mt-2">
+          <p className="font-bold text-2xl">End Date</p>
+    {/*    <BookingDatePickerTo/> */}
+    <input type="date" name="endDate" className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 "/>
+          </div>
+          <button type="submit" className="p-2 bg-white text-back-main-color font-bold text-xl rounded">Book Now</button>
+        </form>
       </Container>
     </>
   );
