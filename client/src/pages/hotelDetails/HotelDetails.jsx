@@ -3,12 +3,17 @@ import useAuth from "../../hooks/useAuth";
 import Loader from "../../components/reUseComponents/Loader";
 import Title from "../../components/reUseComponents/Title";
 import Container from "../../components/reUseComponents/Container";
+import date from "date-and-time"
+import { useState } from "react";
+
+
 
 
 
 const HotelDetails = () => {
   const { loading } = useAuth();
   const hotel = useLoaderData();
+  const [totalPrice, setTotalPrice] = useState(0)
 
   const doubleBedPrice = parseInt(hotel.doubleBedPrice);
   const singleBedPrice = parseInt(hotel.singleBedPrice);
@@ -20,14 +25,17 @@ const HotelDetails = () => {
   const handleBooking = e =>{
     e.preventDefault()
     const form = e.target 
-    const startDate = form.startDate.value;
-    const endDate = form.endDate.value;
+    const startDate = new Date( form.startDate.value)
+    const endDate = new Date(form.endDate.value);
+    const countDays = date.subtract(endDate, startDate).toDays()
     const roomType = form.roomType.value;
+    console.log(countDays);
+    const totalPrice = roomType ==='Couple' ? doubleBedPrice * countDays : singleBedPrice * countDays;
+    setTotalPrice(totalPrice)
+
+
 
     
-
-
-    console.log('start date',startDate,'end date', endDate, 'room type', roomType);
   }
 
   if (loading) return <Loader />;
@@ -132,7 +140,7 @@ const HotelDetails = () => {
             </select>
           <button type="submit" className="p-2 bg-white text-back-main-color font-bold text-xl rounded">Book Now</button>
         </form>
-            <p className="text-2xl font-bold text-right">Price:0</p>
+            <p className="text-2xl font-bold text-right">Price:{totalPrice}</p>
       </Container>
     </>
   );

@@ -1,7 +1,8 @@
 import { Outlet } from "react-router-dom";
-import Navbar from "../sheard/header/navbar";
-import TopBar from "../sheard/header/topBar";
+
 import Footer from "../sheard/footer/Footer";
+import TopBar from "../sheard/header/TopBar";
+import Navbar from "../sheard/header/Navbar";
 
 
 const Main = () => {
