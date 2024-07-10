@@ -191,9 +191,11 @@ const RoomAddForms = () => {
           {/* price */}
           <div className="flex justify-between">
             <div>
-              <label className="text-sm text-white block mb-1 font-bold">
+              <label className="text-sm text-white block mb-1 font-bold relative left-2">
                 Double Bed Rooms Price
               </label>
+              <div className="flex items-center">
+                <span className="bg-white text-back-main-color font-bold p-[5px] rounded-bl-md rounded-tl-md relative left-2">$</span>
               <input
                 type="number"
                 name="doubleBedPrice"
@@ -201,18 +203,22 @@ const RoomAddForms = () => {
                 className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full"
                 placeholder="Per night double bed"
               />
+              </div>
             </div>
             <div>
-              <label className="text-sm text-white block mb-1 font-bold">
+              <label className="text-sm text-white block mb-1 font-bold relative left-2">
                 Single Bed Rooms Price
               </label>
+              <div className="flex items-center">
+                <span className="bg-white text-back-main-color font-bold p-[5px] rounded-bl-md rounded-tl-md relative left-2">$</span>
               <input
                 type="number"
                 name="singleBedPrice"
                 id="singleBedPrice"
                 className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full"
-                placeholder="Per night single bed"
+                placeholder="Per night double bed"
               />
+              </div>
             </div>
           </div>
         </div>
