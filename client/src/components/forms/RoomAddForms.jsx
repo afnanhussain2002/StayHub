@@ -184,6 +184,33 @@ const RoomAddForms = () => {
               <input type="file" name="roomImage4" className="file:bg-back-main-color file:text-white file:rounded file:border-none"/>
             </div>
           </div>
+          {/* price */}
+          <div className="flex justify-between">
+            <div>
+              <label className="text-sm text-white block mb-1 font-bold">
+                Double Bed Rooms Price
+              </label>
+              <input
+                type="number"
+                name="doubleBed"
+                id="doubleBed"
+                className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full"
+                placeholder="Per night double bed"
+              />
+            </div>
+            <div>
+              <label className="text-sm text-white block mb-1 font-bold">
+                Single Bed Rooms Price
+              </label>
+              <input
+                type="number"
+                name="singleBed"
+                id="singleBed"
+                className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full"
+                placeholder="Per night single bed"
+              />
+            </div>
+          </div>
         </div>
         {/* description */}
 
