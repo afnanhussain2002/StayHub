@@ -9,7 +9,7 @@ import Container from "../../components/reUseComponents/Container";
 const HotelDetails = () => {
   const { loading } = useAuth();
   const hotel = useLoaderData();
-  console.log(hotel);
+
   const doubleBedPrice = parseInt(hotel.doubleBedPrice);
   const singleBedPrice = parseInt(hotel.singleBedPrice);
   const availableSingleRooms = parseInt(hotel.singleBed);
@@ -22,8 +22,12 @@ const HotelDetails = () => {
     const form = e.target 
     const startDate = form.startDate.value;
     const endDate = form.endDate.value;
+    const roomType = form.roomType.value;
 
-    console.log('start date',startDate,'end date', endDate);
+    
+
+
+    console.log('start date',startDate,'end date', endDate, 'room type', roomType);
   }
 
   if (loading) return <Loader />;
