@@ -4,8 +4,6 @@ import { imageUpload } from "../../api/imageUpload";
 import useAuth from "../../hooks/useAuth";
 import { successPopup } from "../../popups/popups";
 
-/* import { PiSpinnerBallFill } from "react-icons/pi";
-console.log(PiSpinnerBallFill); */
 
 const RoomAddForms = () => {
   const { user, loading } = useAuth();
