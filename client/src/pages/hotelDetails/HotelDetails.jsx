@@ -3,8 +3,7 @@ import useAuth from "../../hooks/useAuth";
 import Loader from "../../components/reUseComponents/Loader";
 import Title from "../../components/reUseComponents/Title";
 import Container from "../../components/reUseComponents/Container";
-import BookingsDatePickerFrom from "../../components/DatePicker/DatePicker";
-import BookingDatePickerTo from "../../components/DatePicker/BookingDatePickerTo";
+
 
 
 const HotelDetails = () => {
@@ -16,6 +15,17 @@ const HotelDetails = () => {
   const availableSingleRooms = parseInt(hotel.singleBed);
   const availableCoupleRooms = parseInt(hotel.doubleBed);
   const availableRooms = availableCoupleRooms + availableSingleRooms;
+
+  // handle hotel booking form
+  const handleBooking = e =>{
+    e.preventDefault()
+    const form = e.target 
+    const startDate = form.startDate.value;
+    const endDate = form.endDate.value;
+
+    console.log('start date',startDate,'end date', endDate);
+  }
+
   if (loading) return <Loader />;
   return (
     <>
@@ -89,7 +99,8 @@ const HotelDetails = () => {
         </div>
 
           <Title small title={"Book Now"} left />
-        <form className="flex gap-2 justify-center items-center bg-back-main-color w-2/3 px-2 py-5 rounded-lg">
+          {/* form for handle booking */}
+        <form onSubmit={handleBooking} className="flex gap-2 justify-center items-center bg-back-main-color w-full px-2 py-5 rounded-lg">
           <div className="flex items-center gap-2">
             <p className="font-bold text-2xl">Start Date</p>
      {/*   <BookingsDatePickerFrom/> */}
@@ -101,8 +112,23 @@ const HotelDetails = () => {
     {/*    <BookingDatePickerTo/> */}
     <input type="date" name="endDate" className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 "/>
           </div>
+
+          <select
+              id="roomType"
+              name="roomType"
+              className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full"
+            >
+                <option>
+                 Couple
+                </option>
+                <option>
+                 Single
+                </option>
+           
+            </select>
           <button type="submit" className="p-2 bg-white text-back-main-color font-bold text-xl rounded">Book Now</button>
         </form>
+            <p className="text-2xl font-bold text-right">Price:0</p>
       </Container>
     </>
   );
