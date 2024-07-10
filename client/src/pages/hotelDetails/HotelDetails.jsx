@@ -48,6 +48,7 @@ const HotelDetails = () => {
         {/* hotel name */}
         <div>
           <Title title={hotel.hotelName} left/>
+          <h3 className="font-bold text-2xl">Location: {hotel.hotelLocation}</h3>
         </div>
 
         <div className="mt-12"> 
@@ -70,6 +71,12 @@ const HotelDetails = () => {
 
           <h3 className="font-bold text-2xl"> Couple Rooms Price: ${doubleBedPrice}</h3>
           <h3 className="font-bold text-2xl"> Single Rooms Price: ${singleBedPrice}</h3>
+        </div>
+
+        <div>
+            <Title small title={'Book Now'} left/>
+
+            
         </div>
       </Container>
     </>

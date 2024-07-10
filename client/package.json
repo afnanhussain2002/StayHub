@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@mui/material": "^5.16.0",
+    "@mui/styled-engine-sc": "^6.0.0-alpha.18",
     "axios": "^1.7.2",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
@@ -26,6 +28,7 @@
     "react-router-dom": "^6.21.2",
     "react-spinners": "^0.14.1",
     "sort-by": "^1.2.0",
+    "styled-components": "^6.1.11",
     "sweetalert2": "^11.12.2"
   },
   "devDependencies": {
