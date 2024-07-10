@@ -8,6 +8,8 @@ import AboutUs from "../pages/AboutUs/AboutUs";
 import AddRooms from "../components/AddRooms/AddRooms";
 import PrivateRoutes from "./PrivateRoutes";
 import HotelDetails from "../pages/hotelDetails/HotelDetails";
+import { getSingleHotels } from "../api/hotels";
+
 
 
 const router = createBrowserRouter([
@@ -31,7 +33,8 @@ const router = createBrowserRouter([
             {
                 path:'/hotel/:id',
                 element:<HotelDetails/>,
-                
+                loader: ({params}) => getSingleHotels(params.id)
+            
             }
         ],
         

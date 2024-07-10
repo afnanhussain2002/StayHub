@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const HotelsCard = ({ hotel }) => {
   return (
     <div className="p-4 w-1/3">
@@ -14,9 +16,12 @@ const HotelsCard = ({ hotel }) => {
       
         <p className="leading-relaxed mb-3 text-back-main-color font-semibold text-2xl">{hotel.hotelName}</p>
         <div className="flex items-center flex-wrap ">
+          <Link to={`/hotel/${hotel._id}`}>
           <button className="bg-back-main-color p-2 text-white font-bold rounded-md">
             Details
           </button>
+          
+          </Link>
           <span className="text-black mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-black">
             {hotel.host.name}
           </span>
