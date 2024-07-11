@@ -11,6 +11,7 @@ import HotelDetails from "../pages/hotelDetails/HotelDetails";
 import { getSingleHotels } from "../api/hotels";
 import DashBoard from "../layouts/Dashboard/DashBoard";
 import HotelsByHost from "../layouts/Dashboard/HostDashboard/HotelsByHost";
+import AllUsers from "../layouts/Dashboard/AdminDashboard/AllUsers";
 
 const router = createBrowserRouter([
   {
@@ -63,7 +64,11 @@ const router = createBrowserRouter([
           </PrivateRoutes>
         ),
       },
-      
+      {
+        path:'allUsers',
+        element:<AllUsers/>
+      }
+
     ],
   },
   {
