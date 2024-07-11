@@ -30,7 +30,7 @@ const router = createBrowserRouter([
             
             {
                 path:'/hotel/:id',
-                element:<HotelDetails/>,
+                element:<PrivateRoutes><HotelDetails/></PrivateRoutes>,
                 loader: ({params}) => getSingleHotels(params.id)
             
             }
