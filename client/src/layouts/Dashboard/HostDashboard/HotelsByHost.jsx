@@ -2,15 +2,17 @@ import { useEffect, useState } from "react";
 import useAuth from "../../../hooks/useAuth";
 import { getHostHotels } from "../../../api/hotels";
 import TableForHostHotels from "./TableForHostHotels";
+import Loader from "../../../components/reUseComponents/Loader";
 
 const HotelsByHost = () => {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
   const [hotels, setHotels] = useState([]);
   useEffect(() => {
     getHostHotels(user?.email).then((data) => {
       setHotels(data);
     });
   }, [user]);
+  if (loading) return <Loader/>
   return (
     <>
       <div className="container mx-auto px-4 sm:px-8">
