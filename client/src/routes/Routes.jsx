@@ -12,57 +12,68 @@ import { getSingleHotels } from "../api/hotels";
 import DashBoard from "../layouts/Dashboard/DashBoard";
 import HotelsByHost from "../layouts/Dashboard/HostDashboard/HotelsByHost";
 
-
-
 const router = createBrowserRouter([
-    {
-        path:'/',
-        element:<Main/>,
-        errorElement:<ErrorPage/>,
-        children:[
-            {
-                path:'/',
-                element:<Home/>
-            },
-            {
-                path:'/about',
-                element:<AboutUs/>
-            },
-            
-            {
-                path:'/hotel/:id',
-                element:<PrivateRoutes><HotelDetails/></PrivateRoutes>,
-                loader: ({params}) => getSingleHotels(params.id)
-            
-            }
-        ],
-        
-        
-    },
-    {
-       path:'/dashboard',
-       element:<PrivateRoutes><DashBoard/></PrivateRoutes>,
-       children:[
-        {
-            path:'addHotel',
-            element:<PrivateRoutes> <AddRooms/> </PrivateRoutes>
-        },
-        {
-            path:'yourHotels',
-            element:<PrivateRoutes><HotelsByHost/></PrivateRoutes>
-         
-        },
-       ]
-    },
-    {
-        path:'/login',
-        element:<Login/>
-    },
-    {
-        path:'/register',
-        element:<Register/>
-    }
-])
+  {
+    path: "/",
+    element: <Main />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/about",
+        element: <AboutUs />,
+      },
 
-export default router
+      {
+        path: "/hotel/:id",
+        element: (
+          <PrivateRoutes>
+            <HotelDetails />
+          </PrivateRoutes>
+        ),
+        loader: ({ params }) => getSingleHotels(params.id),
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRoutes>
+        <DashBoard />
+      </PrivateRoutes>
+    ),
+    children: [
+      {
+        path: "addHotel",
+        element: (
+          <PrivateRoutes>
+            {" "}
+            <AddRooms />{" "}
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "yourHotels",
+        element: (
+          <PrivateRoutes>
+            <HotelsByHost />
+          </PrivateRoutes>
+        ),
+      },
+      
+    ],
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/register",
+    element: <Register />,
+  },
+]);
 
+export default router;
