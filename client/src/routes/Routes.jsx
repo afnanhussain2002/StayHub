@@ -49,7 +49,7 @@ const router = createBrowserRouter([
         },
         {
             path:'yourHotels',
-            element:<HotelsByHost/>
+            element:<PrivateRoutes><HotelsByHost/></PrivateRoutes>
          
         },
        ]

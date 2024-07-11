@@ -12,6 +12,7 @@ const MenuDashboard = () => {
                 <Link to={'addHotel'}>Add Hotel</Link>
                 <Link to={'/dashboard'}>View Orders</Link>
                 <Link to={'yourHotels'}>Your Hotels</Link>
+                <Link to={'yourHotels'}>All Users</Link>
             </div>
             <div>
                 <button className="bg-white p-2 rounded-md text-back-main-color">Logout</button>
