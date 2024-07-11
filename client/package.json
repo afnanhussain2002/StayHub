@@ -12,6 +12,8 @@
   "dependencies": {
     "@mui/material": "^5.16.0",
     "@mui/styled-engine-sc": "^6.0.0-alpha.18",
+    "@stripe/react-stripe-js": "^2.7.3",
+    "@stripe/stripe-js": "^4.1.0",
     "axios": "^1.7.2",
     "cors": "^2.8.5",
     "date-and-time": "^3.4.0",

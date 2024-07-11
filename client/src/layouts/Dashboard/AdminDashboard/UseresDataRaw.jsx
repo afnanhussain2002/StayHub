@@ -13,7 +13,7 @@ const UsersDataRaw = ({user}) => {
           {user?.status ? (
             <p
               className={`${
-                user.status === 'Verified' ? 'text-green-500' : 'text-yellow-500'
+                user.status === 'verified' ? 'text-green-500' : 'text-yellow-500'
               } whitespace-no-wrap`}
             >
               {user.status}
@@ -27,9 +27,9 @@ const UsersDataRaw = ({user}) => {
           <span className='relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight'>
             <span
               aria-hidden='true'
-              className='absolute inset-0 bg-green-200 opacity-50 rounded-full'
+              className='absolute inset-0 bg-back-main-color rounded-full'
             ></span>
-            <span className='relative'>Update Role</span>
+            <span className='relative text-white'>Update Role</span>
           </span>
           {/* Modal */}
         </td>
