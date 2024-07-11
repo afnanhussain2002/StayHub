@@ -1,4 +1,4 @@
-import BookNowbtn from "../BookNowbtn/BookNowbtn";
+import DashboardBtn from "../BookNowbtn/BookNowbtn";
 
 
 const WhyChoseUs = () => {
@@ -10,7 +10,7 @@ const WhyChoseUs = () => {
            <div className="text-center text-white font-semibold ">
            <h3 className="pt-14 tracking-widest">WHY CHOSE US</h3>
            <h1 className="text-6xl max-w-5xl mx-auto py-8">Contact us now to get the latest deals and for the next booking</h1>
-           <BookNowbtn/>
+           <DashboardBtn/>
            </div>
         </div>
     </section>

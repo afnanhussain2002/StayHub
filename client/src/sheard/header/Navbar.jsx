@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Logo from "./Logo";
-import BookNowbtn from "../BookNowbtn/BookNowbtn";
+import DashboardBtn from "../BookNowbtn/BookNowbtn";
 import useAuth from "../../hooks/useAuth";
 
 
@@ -49,7 +49,7 @@ const Navbar = () => {
         <img className="w-10 h-10 rounded-full border-2 border-white" src={user?.photoURL} alt="Rounded avatar"></img>
         :
 
-        <BookNowbtn/>
+       ''
       }
          </div>
       </div>
