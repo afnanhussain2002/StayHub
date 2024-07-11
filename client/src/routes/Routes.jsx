@@ -9,6 +9,7 @@ import AddRooms from "../components/AddRooms/AddRooms";
 import PrivateRoutes from "./PrivateRoutes";
 import HotelDetails from "../pages/hotelDetails/HotelDetails";
 import { getSingleHotels } from "../api/hotels";
+import DashBoard from "../layouts/Dashboard/DashBoard";
 
 
 
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
         ],
         
         
+    },
+    {
+       path:'/dashboard',
+       element:<DashBoard/>
     },
     {
         path:'/login',
