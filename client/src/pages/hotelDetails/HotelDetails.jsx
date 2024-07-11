@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import Loader from "../../components/reUseComponents/Loader";
 import Title from "../../components/reUseComponents/Title";
@@ -140,7 +140,7 @@ const HotelDetails = () => {
             </select>
           <button type="submit" className="p-2 bg-white text-back-main-color font-bold text-xl rounded">Book Now</button>
         </form>
-            <p className="text-2xl font-bold text-right">Price:${totalPrice}</p>
+            <p className="text-2xl font-bold text-right">Price:${totalPrice} <Link to={'/dashboard/payment'} className="p-2 bg-back-main-color rounded-md font-bold text-white">Pay Now</Link> </p>
       </Container>
     </>
   );
