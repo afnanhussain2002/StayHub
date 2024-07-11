@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom";
 import MenuDashboard from "./menuDashboard/menuDashboard";
 
 
@@ -8,8 +9,8 @@ const DashBoard = () => {
              <div className="max-w-lg">
                 <MenuDashboard/>
              </div>
-             <div className="bg-green-600 ml-64 flex-1">
-              content
+             <div className=" ml-64 flex-1">
+              <Outlet/>
              </div>
         </div>
     );

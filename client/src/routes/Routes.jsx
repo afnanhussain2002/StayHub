@@ -27,10 +27,7 @@ const router = createBrowserRouter([
                 path:'/about',
                 element:<AboutUs/>
             },
-            {
-                path:'/addRooms',
-                element:<PrivateRoutes> <AddRooms/> </PrivateRoutes>
-            },
+            
             {
                 path:'/hotel/:id',
                 element:<HotelDetails/>,
@@ -43,7 +40,13 @@ const router = createBrowserRouter([
     },
     {
        path:'/dashboard',
-       element:<DashBoard/>
+       element:<DashBoard/>,
+       children:[
+        {
+            path:'addHotel',
+            element:<PrivateRoutes> <AddRooms/> </PrivateRoutes>
+        },
+       ]
     },
     {
         path:'/login',
