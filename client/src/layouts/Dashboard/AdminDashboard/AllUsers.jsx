@@ -1,10 +1,14 @@
 import { useLoaderData } from "react-router-dom";
 import UsersDataRaw from "./UseresDataRaw";
+import useAuth from "../../../hooks/useAuth";
+import Loader from "../../../components/reUseComponents/Loader";
 
 
 const AllUsers = () => {
+  const {loading} = useAuth()
     const users = useLoaderData()
     console.log(users);
+ if (loading) return <Loader/>
     return (
         <>
       <div className='container mx-auto px-4 sm:px-8'>
@@ -46,7 +50,7 @@ const AllUsers = () => {
                 </thead>
                 <tbody>
                     {
-                        users.map(user => <UsersDataRaw key={user._id} user={user}></UsersDataRaw>)
+                        users.map(user => <UsersDataRaw key={user._id} user={user.user}></UsersDataRaw>)
                     }
                 </tbody>
               </table>
