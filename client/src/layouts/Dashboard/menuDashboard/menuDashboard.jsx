@@ -1,11 +1,20 @@
+import { Link } from "react-router-dom";
 
 
-const menuDashboard = () => {
+const MenuDashboard = () => {
     return (
-        <div>
-            
+        <div className="flex flex-col">
+            <div className="flex flex-col gap-4">
+                <Link to={'/dashboard'}>Home</Link>
+                <Link to={'/dashboard'}>Home</Link>
+                <Link to={'/dashboard'}>Home</Link>
+                <Link to={'/dashboard'}>Home</Link>
+            </div>
+            <div>
+                <Link>Logout</Link>
+            </div>
         </div>
     );
 };
 
-export default menuDashboard;
+export default MenuDashboard;
