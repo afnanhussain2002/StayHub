@@ -10,6 +10,7 @@ import PrivateRoutes from "./PrivateRoutes";
 import HotelDetails from "../pages/hotelDetails/HotelDetails";
 import { getSingleHotels } from "../api/hotels";
 import DashBoard from "../layouts/Dashboard/DashBoard";
+import HotelsByHost from "../layouts/Dashboard/HostDashboard/HotelsByHost";
 
 
 
@@ -45,6 +46,11 @@ const router = createBrowserRouter([
         {
             path:'addHotel',
             element:<PrivateRoutes> <AddRooms/> </PrivateRoutes>
+        },
+        {
+            path:'yourHotels',
+            element:<HotelsByHost/>
+         
         },
        ]
     },

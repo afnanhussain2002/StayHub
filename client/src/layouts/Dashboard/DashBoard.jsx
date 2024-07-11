@@ -11,7 +11,7 @@ const DashBoard = () => {
                
                 <MenuDashboard/>
              </div>
-             <div className=" ml-64 flex-1">
+             <div className=" ml-32 flex-1">
               <Outlet/>
              </div>
         </div>

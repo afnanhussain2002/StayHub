@@ -11,7 +11,7 @@ const MenuDashboard = () => {
                 <Link to={'/dashboard'}>Dashboard</Link>
                 <Link to={'addHotel'}>Add Hotel</Link>
                 <Link to={'/dashboard'}>View Orders</Link>
-                <Link to={'/dashboard'}>Your Hotels</Link>
+                <Link to={'yourHotels'}>Your Hotels</Link>
             </div>
             <div>
                 <button className="bg-white p-2 rounded-md text-back-main-color">Logout</button>
