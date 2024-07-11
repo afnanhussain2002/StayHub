@@ -40,7 +40,7 @@ const router = createBrowserRouter([
     },
     {
        path:'/dashboard',
-       element:<DashBoard/>,
+       element:<PrivateRoutes><DashBoard/></PrivateRoutes>,
        children:[
         {
             path:'addHotel',
