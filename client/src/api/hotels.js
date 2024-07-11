@@ -20,3 +20,9 @@ export const getSingleHotels = async(id) =>{
     const {data} = await axiosSecure(`/hotel/${id}`)
     return data
 }
+// get hotels with filter for host
+
+export const getHostHotels = async(email) =>{
+    const {data} = await axiosSecure(`hotels/${email}`)
+    return data
+} 

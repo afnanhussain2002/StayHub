@@ -104,7 +104,7 @@ async function run() {
 
     // get posted hotel by the host 
 
-    app.get('/hotel/:email', async(req,res) =>{
+    app.get('/hotels/:email', async(req,res) =>{
      const email = req.params.email
      const query = {'host.email':email}
      const result = await hotelsCollection.find(query).toArray()
