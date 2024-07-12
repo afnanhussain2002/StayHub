@@ -2,14 +2,16 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
 import { sendBookingPrice } from "../../api/payment";
 import useAuth from "../../hooks/useAuth";
+import { removeFromLS } from "../../utils/localStorage";
 
-const CheckoutForm = ({ price }) => {
+const CheckoutForm = ({ getBookingInfo }) => {
   const { user } = useAuth();
   const stripe = useStripe();
   const elements = useElements();
   const [err, setErr] = useState("");
   const [clientSecret, setClientSecret] = useState();
-  const bookingAmount = price - price * 0.8;
+  const price = getBookingInfo[0]?.totalPrice
+  const bookingAmount = price - (price * 0.8) || 0;
 
   // post payment
   useEffect(() => {
@@ -65,7 +67,11 @@ const CheckoutForm = ({ price }) => {
       console.log("confirm error", confirmError);
     } else {
       console.log("payment Intent", paymentIntent);
+      if (paymentIntent.status === 'succeeded') {
+        removeFromLS(getBookingInfo)
+      }
     }
+   
   };
   return (
     <form onSubmit={handleSubmit}>

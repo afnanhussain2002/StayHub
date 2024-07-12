@@ -14,7 +14,7 @@ const Payment = () => {
     <Title title={'Pay For Booking'}/>
 
     <Elements stripe={stripePromise}>
-<CheckoutForm price={getBookingInfo[0].totalPrice}/>
+<CheckoutForm getBookingInfo={getBookingInfo}/>
     </Elements>
       </Container>
     );

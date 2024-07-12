@@ -16,10 +16,8 @@ const getBookedHotel = () => {
     booked.push(bookedHotel);
     saveHotelToLS(booked);
   };
-  const removeFromLS = id =>{
-      const bookedHotel = getBookedHotel();
-      const remaining = bookedHotel.filter(idx => idx !== id) ;
-      saveHotelToLS(remaining)
+  const removeFromLS = () =>{
+      return localStorage.removeItem("hotel")
   }
   
   export {addToLS, getBookedHotel, removeFromLS};
