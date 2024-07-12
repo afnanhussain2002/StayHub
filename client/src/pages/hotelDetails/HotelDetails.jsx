@@ -5,7 +5,6 @@ import Title from "../../components/reUseComponents/Title";
 import Container from "../../components/reUseComponents/Container";
 import date from "date-and-time"
 import { useState } from "react";
-import { bookHotel } from "../../api/booking";
 import { successPopup } from "../../popups/popups";
 import { addToLS } from "../../utils/localStorage";
 

@@ -3,8 +3,11 @@ import { useEffect, useState } from "react";
 import { sendBookingPrice } from "../../api/payment";
 import useAuth from "../../hooks/useAuth";
 import { removeFromLS } from "../../utils/localStorage";
+import { bookHotel } from "../../api/booking";
+import { successPopup } from "../../popups/popups";
 
 const CheckoutForm = ({ getBookingInfo }) => {
+  const {hotelName,roomType, startDate, endDate} = getBookingInfo[0] || {}
   const { user } = useAuth();
   const stripe = useStripe();
   const elements = useElements();
@@ -70,8 +73,21 @@ const CheckoutForm = ({ getBookingInfo }) => {
     } else {
       console.log("payment Intent", paymentIntent);
       if (paymentIntent.status === 'succeeded') {
+        // remove data from local storage
         removeFromLS(getBookingInfo)
+        // show transaction id to ui
         setTransactionId(paymentIntent.id)
+
+        // sent booking with payment in database
+        const bookingInfo = { hotelName, roomType, startDate,endDate, email:user?.email, transactionId, bookingAmount, payment:'20% Complete'  }
+
+        // call save booking function
+        const result = await bookHotel(bookingInfo)
+        console.log(result);
+        if (result.insertedId) {
+          successPopup('Payment Successfully')
+        }
+
       }
     }
    
