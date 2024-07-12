@@ -1,13 +1,23 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { sendBookingPrice } from "../../api/payment";
 
 
 const CheckoutForm = ({price}) => {
     const stripe = useStripe();
   const elements = useElements();
   const [err, setErr] = useState('')
+  const [clientSecret, setClientSecret] = useState()
   const bookingAmount = price - (price * 0.8 )
   console.log(bookingAmount);
+  // post payment
+  useEffect(() =>{
+    sendBookingPrice(bookingAmount)
+    .then(data =>{
+      console.log(data.clientSecret);
+      setClientSecret(data.clientSecret)
+    })
+  },[bookingAmount])
     const handleSubmit = async e =>{
         e.preventDefault()
 
