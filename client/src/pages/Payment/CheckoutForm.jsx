@@ -14,6 +14,7 @@ const CheckoutForm = ({ getBookingInfo }) => {
   const [err, setErr] = useState("");
   const [clientSecret, setClientSecret] = useState();
   const [transactionId, setTransactionId] = useState()
+  const [disabledBtn, setDisableBtn] = useState(true)
   
   const price = getBookingInfo[0]?.totalPrice
   const bookingAmount = price - (price * 0.8) || 0;
@@ -112,9 +113,10 @@ const CheckoutForm = ({ getBookingInfo }) => {
       />
       <p>Pay 20% of the full payment. So you have to pay ${bookingAmount} for confirm the booking</p>
       <button
+      onClick={() => setDisableBtn(false)}
         type="submit"
         className="p-1 bg-back-main-color rounded text-white font-bold disabled:bg-slate-400"
-        disabled={!stripe || !clientSecret}
+        disabled={!stripe || !clientSecret || !disabledBtn}
       >
         Pay
       </button>
