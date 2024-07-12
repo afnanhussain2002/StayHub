@@ -6,3 +6,4 @@ export const bookHotel = async(bookingInfo) =>{
     const {data} = await axiosSecure.post('/hotel/booking', bookingInfo)
     return data
 }
+
