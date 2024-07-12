@@ -9,7 +9,6 @@ const Payment = () => {
     // load stripe
     const stripePromise = loadStripe(import.meta.env.VITE_payment_gateway_pk)
     const getBookingInfo = getBookedHotel()
-    console.log('hotel',getBookingInfo[0].totalPrice);
     return (
       <Container>
     <Title title={'Pay For Booking'}/>

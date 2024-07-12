@@ -9,7 +9,7 @@ const CheckoutForm = ({price}) => {
   const [err, setErr] = useState('')
   const [clientSecret, setClientSecret] = useState()
   const bookingAmount = price - (price * 0.8 )
-  console.log(bookingAmount);
+ 
   // post payment
   useEffect(() =>{
     sendBookingPrice(bookingAmount)
@@ -62,7 +62,7 @@ const CheckoutForm = ({price}) => {
           },
         }}
       />
-      <button type="submit" className="p-1 bg-back-main-color rounded text-white font-bold" disabled={!stripe}>
+      <button type="submit" className="p-1 bg-back-main-color rounded text-white font-bold default:bg-slate-400" disabled={!stripe || clientSecret}>
         Pay
       </button>
       <p className="text-red-600">{err}</p>

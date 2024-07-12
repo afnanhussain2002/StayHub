@@ -96,8 +96,6 @@ async function run() {
       res.send(result)
     })
 
-    
-    app.get()
 
 
     // get all hotels
