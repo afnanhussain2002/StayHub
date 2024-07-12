@@ -11,6 +11,7 @@ const CheckoutForm = ({ getBookingInfo }) => {
   const [err, setErr] = useState("");
   const [clientSecret, setClientSecret] = useState();
   const [transactionId, setTransactionId] = useState()
+  
   const price = getBookingInfo[0]?.totalPrice
   const bookingAmount = price - (price * 0.8) || 0;
 

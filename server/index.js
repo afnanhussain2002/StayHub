@@ -129,19 +129,32 @@ async function run() {
 
     // payment intent
 
-    app.post('/create-payment-intent', async(req,res) =>{
-      const {price} = req.body;
-      const amount = parseInt(price * 100)
-      console.log(amount);
-      const paymentIntent = await stripe.paymentIntents.create({
-        amount:amount,
-        currency:'usd',
-        payment_method_types: ['card']  
-      })
-      res.send({
-        clientSecret: paymentIntent.client_secret
-      })
-    })
+    app.post('/create-payment-intent', async (req, res) => {
+      try {
+        const { price } = req.body;
+    
+        // Validate price
+        if (!price || isNaN(price) || price <= 0) {
+          return res.status(400).send({ error: 'Invalid price' });
+        }
+    
+        const amount = parseInt(price * 100);
+        console.log(`Amount in cents: ${amount}`);
+    
+        const paymentIntent = await stripe.paymentIntents.create({
+          amount: amount,
+          currency: 'usd',
+          payment_method_types: ['card'],
+        });
+    
+        res.send({
+          clientSecret: paymentIntent.client_secret,
+        });
+      } catch (error) {
+        console.error('Error creating payment intent:', error);
+        res.status(500).send({ error: 'Internal Server Error' });
+      }
+    });
 
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
