@@ -35,6 +35,7 @@ async function run() {
     await client.connect();
     const userCollection = client.db("stayHubDB").collection("hubUser");
     const hotelsCollection = client.db("stayHubDB").collection("hotel");
+    const bookingCollection = client.db("stayHubDB").collection("booking")
 
     // auth related api
 
@@ -87,6 +88,9 @@ async function run() {
       const result = await hotelsCollection.insertOne(hotel);
       res.send(result);
     });
+
+    // book a hotel
+    
 
     // get all hotels
 
