@@ -2,10 +2,12 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useState } from "react";
 
 
-const CheckoutForm = () => {
+const CheckoutForm = ({price}) => {
     const stripe = useStripe();
   const elements = useElements();
   const [err, setErr] = useState('')
+  const bookingAmount = price - (price * 0.8 )
+  console.log(bookingAmount);
     const handleSubmit = async e =>{
         e.preventDefault()
 
