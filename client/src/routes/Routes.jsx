@@ -15,6 +15,7 @@ import AllUsers from "../layouts/Dashboard/AdminDashboard/AllUsers";
 import { getAllUsers } from "../api/users";
 import Payment from "../pages/Payment/Payment";
 import PaymentHistory from "../pages/Payment/PaymentHistory";
+import AdminRoutes from "./AdminRoutes";
 
 const router = createBrowserRouter([
   {
@@ -68,20 +69,23 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path:'allUsers',
-        element:<AllUsers/>,
-        
+        path: "allUsers",
+        element: (
+          <PrivateRoutes>
+            <AdminRoutes>
+              <AllUsers />
+            </AdminRoutes>
+          </PrivateRoutes>
+        ),
       },
       {
-        path:'payment',
-        element:<Payment/>
+        path: "payment",
+        element: <Payment />,
       },
       {
-        path:'paymentHistory',
-        element:<PaymentHistory/>,
-        
-      }
-
+        path: "paymentHistory",
+        element: <PaymentHistory />,
+      },
     ],
   },
   {

@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import Logo from "../../../sheard/header/Logo";
+import useRole from "../../../hooks/useRole";
 
 
 const MenuDashboard = () => {
+    const [role] = useRole()
 
     return (
         <div className="flex flex-col bg-back-main-color h-full p-12 text-white font-bold text-xl">
@@ -12,7 +14,7 @@ const MenuDashboard = () => {
                 <Link to={'addHotel'}>Add Hotel</Link>
                 <Link to={'/dashboard'}>View Orders</Link>
                 <Link to={'yourHotels'}>Your Hotels</Link>
-                <Link to={'allUsers'}>All Users</Link>
+                {role ==='admin' && <Link to={'allUsers'}>All Users</Link>}
                 <Link to={'paymentHistory'}>Payment History</Link>
             </div>
             <div>
