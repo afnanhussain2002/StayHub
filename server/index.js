@@ -90,7 +90,12 @@ async function run() {
     });
 
     // book a hotel
-    
+    app.post('/hotel/booking', async(req,res) =>{
+      const booked = req.body
+      const result = await bookingCollection.insertOne(booked)
+      res.send(result)
+    })
+
 
     // get all hotels
 
