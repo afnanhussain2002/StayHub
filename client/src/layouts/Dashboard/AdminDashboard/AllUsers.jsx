@@ -1,13 +1,17 @@
-import { useLoaderData } from "react-router-dom";
+
 import UsersDataRaw from "./UseresDataRaw";
 import useAuth from "../../../hooks/useAuth";
 import Loader from "../../../components/reUseComponents/Loader";
+import { useQuery } from "@tanstack/react-query";
+import { getAllUsers } from "../../../api/users";
 
 
 const AllUsers = () => {
-  const {loading} = useAuth()
-    const users = useLoaderData()
-    console.log(users);
+  const {loading} = useAuth() 
+    const {data: users = [],refetch} = useQuery({
+      queryKey:['users'],
+      queryFn: async () => await getAllUsers(),
+    })
  if (loading) return <Loader/>
     return (
         <>
@@ -50,7 +54,7 @@ const AllUsers = () => {
                 </thead>
                 <tbody>
                     {
-                        users.map(user => <UsersDataRaw key={user._id} user={user.user}></UsersDataRaw>)
+                        users.map(user => <UsersDataRaw key={user._id} user={user?.user}></UsersDataRaw>)
                     }
                 </tbody>
               </table>

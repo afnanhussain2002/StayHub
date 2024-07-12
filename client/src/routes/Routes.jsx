@@ -70,7 +70,7 @@ const router = createBrowserRouter([
       {
         path:'allUsers',
         element:<AllUsers/>,
-        loader: () => getAllUsers()
+        
       },
       {
         path:'payment',
