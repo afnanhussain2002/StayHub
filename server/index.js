@@ -121,6 +121,13 @@ async function run() {
      res.send(result)
     })
 
+    // get the payment history
+    app.get('/paymentHistory/:email', async(req,res) =>{
+      const email = req.params.email;
+      const result = await bookingCollection.find({email:email}).toArray()
+      res.send(result)
+    })
+
     // get all users 
     app.get('/users', async(req,res) =>{
       const result = await userCollection.find().toArray()
