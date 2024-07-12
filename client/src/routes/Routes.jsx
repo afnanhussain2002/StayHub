@@ -16,6 +16,7 @@ import { getAllUsers } from "../api/users";
 import Payment from "../pages/Payment/Payment";
 import PaymentHistory from "../pages/Payment/PaymentHistory";
 import AdminRoutes from "./AdminRoutes";
+import HostRoutes from "./HostRoutes";
 
 const router = createBrowserRouter([
   {
@@ -55,8 +56,10 @@ const router = createBrowserRouter([
         path: "addHotel",
         element: (
           <PrivateRoutes>
-            {" "}
-            <AddRooms />{" "}
+            <HostRoutes>
+            <AddRooms />
+
+            </HostRoutes>
           </PrivateRoutes>
         ),
       },
