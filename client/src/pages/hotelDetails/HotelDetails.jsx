@@ -5,13 +5,16 @@ import Title from "../../components/reUseComponents/Title";
 import Container from "../../components/reUseComponents/Container";
 import date from "date-and-time"
 import { useState } from "react";
+import { bookHotel } from "../../api/booking";
+import { successPopup } from "../../popups/popups";
+
 
 
 
 
 
 const HotelDetails = () => {
-  const { loading } = useAuth();
+  const {user,loading } = useAuth();
   const hotel = useLoaderData();
   const [totalPrice, setTotalPrice] = useState(0)
 
@@ -22,7 +25,7 @@ const HotelDetails = () => {
   const availableRooms = availableCoupleRooms + availableSingleRooms;
 
   // handle hotel booking form
-  const handleBooking = e =>{
+  const handleBooking =async e =>{
     e.preventDefault()
     const form = e.target 
     const startDate = new Date( form.startDate.value)
@@ -32,8 +35,12 @@ const HotelDetails = () => {
     console.log(countDays);
     const totalPrice = roomType ==='Couple' ? doubleBedPrice * countDays : singleBedPrice * countDays;
     setTotalPrice(totalPrice)
-   
+    const bookingInfo = {user,hotelName:hotel.hotelName,roomType, startDate, endDate, totalPrice }
+  //  add on database
+    await bookHotel(bookingInfo)
+    successPopup('Please Pay The Amount')
   }
+  
 
   if (loading) return <Loader />;
   return (
