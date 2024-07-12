@@ -32,10 +32,7 @@ const HotelDetails = () => {
     console.log(countDays);
     const totalPrice = roomType ==='Couple' ? doubleBedPrice * countDays : singleBedPrice * countDays;
     setTotalPrice(totalPrice)
-
-
-
-    
+   
   }
 
   if (loading) return <Loader />;
