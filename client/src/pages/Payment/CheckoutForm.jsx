@@ -12,11 +12,16 @@ const CheckoutForm = ({price}) => {
  
   // post payment
   useEffect(() =>{
-    sendBookingPrice(bookingAmount)
-    .then(data =>{
-      console.log(data.clientSecret);
-      setClientSecret(data.clientSecret)
-    })
+    const fetchData = async () =>{
+      try {
+        const data = await sendBookingPrice(bookingAmount)
+        console.log(data.clientSecret);
+        setClientSecret(data.clientSecret)
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchData()
   },[bookingAmount])
     const handleSubmit = async e =>{
         e.preventDefault()
@@ -62,7 +67,7 @@ const CheckoutForm = ({price}) => {
           },
         }}
       />
-      <button type="submit" className="p-1 bg-back-main-color rounded text-white font-bold default:bg-slate-400" disabled={!stripe || clientSecret}>
+      <button type="submit" className="p-1 bg-back-main-color rounded text-white font-bold disabled:bg-slate-400" disabled={!stripe || !clientSecret}>
         Pay
       </button>
       <p className="text-red-600">{err}</p>
