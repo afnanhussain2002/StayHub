@@ -10,7 +10,7 @@ const HeroSection = () => {
         <div className="max-w-7xl mx-auto">
           {user && (
             <div className="flex justify-end pt-4 pr-4">
-              <DashboardBtn/>
+             
             </div>
           )}
         </div>
