@@ -18,7 +18,7 @@ const GetAllHotels = () => {
       
         <Title title={'Best Hotels'}/>
 
-        <div className="flex flex-wrap max-w-7xl mx-auto">
+        <div className="flex flex-wrap max-w-7xl mx-auto justify-center">
             {allHotels.map(hotel => <HotelsCard key={hotel._id} hotel={hotel}></HotelsCard>)}
         </div>
      

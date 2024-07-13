@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const HotelsCard = ({ hotel }) => {
   return (
-    <div className="p-4 w-1/3">
+    <div className="p-4 w-96">
       <div className="h-full border-2 border-back-main-color rounded-lg overflow-hidden">
         <img
           className="lg:h-64 md:h-36 w-full object-cover object-center"
