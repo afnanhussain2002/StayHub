@@ -8,10 +8,16 @@ export default {
     extend: {
       colors:{
         'back-main-color':'#7E2553'
-      }
+      },
+     
     },
-    
+  
   },
   plugins: [require('daisyui'),],
+  daisyui: {
+    themes: ["light"],
+  },
+ 
+
 }
 

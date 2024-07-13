@@ -1,3 +1,4 @@
+import SearchByLocation from "../../../components/searchByLocation/SearchByLocation";
 import useAuth from "../../../hooks/useAuth";
 import DashboardBtn from "../../../sheard/BookNowbtn/BookNowbtn";
 
@@ -15,9 +16,10 @@ const HeroSection = () => {
         </div>
         <div className="text-center py-20 text-white font-semibold lg:py-52">
           <h3 className="pt-14 tracking-widest">WELCOME TO STAYHUB</h3>
-          <h1 className="text-4xl max-w-5xl mx-auto py-8 lg:text-6xl">
-            Your Gateway to Exceptional Stays and Seamless Booking Experiences
+          <h1 className="text-4xl max-w-3xl mx-auto py-8 lg:text-6xl">
+            Your Gateway to Exceptional Stays
           </h1>
+        <SearchByLocation/>
         </div>
       </div>
     </section>
