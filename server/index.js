@@ -105,6 +105,25 @@ async function run() {
       res.send(result);
     });
 
+    // search for hotels
+
+    app.get('/searchHotel/:search', async(req, res) =>{
+      try {
+        const search = req.params.search
+        const searchHotel = {hotelName:{$regex:".*"+search+".*"}}
+        // const searchHotel = {hotelName:search}
+        console.log(searchHotel);
+      const hotelData = await hotelsCollection.find(searchHotel).toArray()
+      if (hotelData.length > 0) {
+        res.status(200).send({success:true, message:'Hotel Details', data:hotelData})
+      }else{
+        res.status(400).send({success:true, message:'Product not Found'})
+      }
+      } catch (error) {
+        res.status(400).send({success:false, message: error.message})
+      }
+    })
+
     // get a single hotel
     app.get('/hotel/:id', async(req,res) =>{
       const id = req.params.id;
