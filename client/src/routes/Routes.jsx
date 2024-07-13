@@ -12,7 +12,6 @@ import { getSingleHotels } from "../api/hotels";
 import DashBoard from "../layouts/Dashboard/DashBoard";
 import HotelsByHost from "../layouts/Dashboard/HostDashboard/HotelsByHost";
 import AllUsers from "../layouts/Dashboard/AdminDashboard/AllUsers";
-import { getAllUsers } from "../api/users";
 import Payment from "../pages/Payment/Payment";
 import PaymentHistory from "../pages/Payment/PaymentHistory";
 import AdminRoutes from "./AdminRoutes";
