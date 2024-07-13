@@ -12,9 +12,9 @@ const Home = () => {
             <HeroSection/>
             <AboutSection/>
             {/* <MainFeatures/> */}
-            <ImageBG>
+           
             <AllCategories/>
-            </ImageBG>
+           
             <GetAllHotels/>
           
         </>
