@@ -4,7 +4,7 @@ import { FaFacebook, FaTwitter, FaLinkedin, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
     return (
-        <section className="bg-[url('https://4.bp.blogspot.com/-G6PtlmfrVS4/TrVS5bmKMRI/AAAAAAAACAU/ZA98HniWDhc/s1600/hotel-room.jpg')] bg-cover bg-center mt-9">
+        <section className="bg-back-main-color bg-cover bg-center mt-9">
             <div className="w-full h-full backdrop-brightness-50">
             <div className="max-w-7xl mx-auto grid grid-cols-3 gap-5 py-14">
               <div className='space-y-3'>

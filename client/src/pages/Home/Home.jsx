@@ -1,4 +1,5 @@
 import AllCategories from "../../components/AllCategories/AllCategories";
+import FindHotelCountries from "../../components/findHotelCountries/FindHotelCountries";
 import GetAllHotels from "../../components/getAllHotels/GetAllHotels";
 import ImageBG from "../../components/reUseComponents/imageBG";
 import AboutSection from "./HomeSections/AboutSection";
@@ -10,7 +11,8 @@ const Home = () => {
     return (
         <>
             <HeroSection/>
-            <AboutSection/>
+            <FindHotelCountries/>
+            {/* <AboutSection/> */}
             {/* <MainFeatures/> */}
            
             <AllCategories/>
