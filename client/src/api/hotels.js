@@ -26,3 +26,8 @@ export const getHostHotels = async(email) =>{
     const {data} = await axiosSecure(`hotels/${email}`)
     return data
 } 
+
+export const getSearchHotel = async(search) =>{
+    const {data} = await axiosSecure(`/searchHotel/${search}`)
+    return data
+}
