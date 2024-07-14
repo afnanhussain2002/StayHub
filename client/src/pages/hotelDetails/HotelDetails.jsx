@@ -119,13 +119,13 @@ const HotelDetails = () => {
           {/* form for handle booking */}
         <form onSubmit={handleBooking} className="flex gap-2 justify-center items-center bg-back-main-color w-full px-2 py-5 rounded-lg">
           <div className="flex items-center gap-2">
-            <p className="font-bold text-2xl">Start Date</p>
+            <p className="font-bold text-2xl text-white">Start Date</p>
      {/*   <BookingsDatePickerFrom/> */}
      <input type="date" name="startDate" className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 "/>
 
           </div>
           <div className="flex items-center gap-2 mt-2">
-          <p className="font-bold text-2xl">End Date</p>
+          <p className="font-bold text-2xl text-white">End Date</p>
     {/*    <BookingDatePickerTo/> */}
     <input type="date" name="endDate" className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 "/>
           </div>
@@ -133,7 +133,7 @@ const HotelDetails = () => {
           <select
               id="roomType"
               name="roomType"
-              className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full"
+              className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-48 h-8"
             >
                 <option>
                  Couple

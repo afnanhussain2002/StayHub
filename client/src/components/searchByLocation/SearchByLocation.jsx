@@ -9,7 +9,7 @@ const SearchByLocation = () => {
 
   useEffect(() =>{
     if (searchTerm === '') {
-     setSearchResults([])
+    return setSearchResults([])
     }else{
       getSearchHotel(searchTerm)
     .then(data =>{
@@ -31,7 +31,7 @@ const SearchByLocation = () => {
     {
       searchResults.length > 0 ?
       <div className="bg-white w-80 rounded-md absolute left-[315px]">
-        {searchResults?.map(item => <div key={item._id} className="flex justify-center gap-1">
+        {searchResults?.map(item => <div key={item._id} className="flex justify-start gap-1">
           <img src={item.bannerImage.data.display_url} alt="" className="w-10 h-8 rounded-md"/>
           <p className="text-black">{item.hotelName}</p>
         </div>)}
