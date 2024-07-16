@@ -5,8 +5,9 @@ import Loader from '../components/reUseComponents/Loader';
 
 const HostRoutes = ({children}) => {
     const [role, isLoading] = useRole()
+    console.log('role',role);
     if(isLoading) return <Loader/>
-    if(role ==='host') children
+    if(role ==="host") return children
     return <Navigate to={'/dashboard'} replace/>
 };
 

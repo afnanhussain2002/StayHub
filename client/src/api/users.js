@@ -10,6 +10,6 @@ export const getAllUsers = async() =>{
 
 export const getUserRole = async(email) =>{
     const {data} = await axiosSecure(`/user/${email}`)
-    return data
+    return data.user.role
 }
 
