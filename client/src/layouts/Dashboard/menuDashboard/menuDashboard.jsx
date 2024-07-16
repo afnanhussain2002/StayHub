@@ -1,8 +1,8 @@
 import { Link, NavLink } from "react-router-dom";
 import Logo from "../../../sheard/header/Logo";
 import useRole from "../../../hooks/useRole";
-import { MdDashboard } from "react-icons/md";
-import { IoAdd } from "react-icons/io5";
+import { MdDashboard,MdAddCircle } from "react-icons/md";
+
 import { LuHistory } from "react-icons/lu";
 
 const MenuDashboard = () => {
@@ -31,7 +31,7 @@ const MenuDashboard = () => {
               : ""
           }
         >
-         <div className="flex items-center gap-1"><IoAdd/> Add Hotel</div>
+         <div className="flex items-center gap-1"><MdAddCircle/> Add Hotel</div>
         </NavLink>
         <NavLink
           to={"viewOrders"}
@@ -68,7 +68,7 @@ const MenuDashboard = () => {
               : ""
           }
         >
-         <LuHistory/> Payment History
+        <div className="flex items-center gap-1"> <LuHistory/> Payment History</div>
         </NavLink>
       </div>
       <div>
