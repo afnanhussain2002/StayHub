@@ -4,12 +4,14 @@ import useRole from "../../../hooks/useRole";
 import { MdDashboard,MdAddCircle, MdCollectionsBookmark  } from "react-icons/md";
 import { FaHotel } from "react-icons/fa";
 import { LuHistory } from "react-icons/lu";
+import MobileMenu from "./mobileMenu";
 
 const MenuDashboard = () => {
   const [role] = useRole();
 
   return (
-    <div className="flex flex-col bg-back-main-color h-full p-12 text-white font-bold text-xl">
+<>
+    <div className=" hidden lg:flex flex-col bg-back-main-color h-full p-12 text-white font-bold text-xl">
       <div className="flex flex-col gap-4 flex-1">
         <Logo />
        
@@ -77,6 +79,10 @@ const MenuDashboard = () => {
         </button>
       </div>
     </div>
+    {/* tablet and mobile menu */}
+    <MobileMenu/>
+
+</>
   );
 };
 
