@@ -1,6 +1,9 @@
 import { Link, NavLink } from "react-router-dom";
 import Logo from "../../../sheard/header/Logo";
 import useRole from "../../../hooks/useRole";
+import { MdDashboard } from "react-icons/md";
+import { IoAdd } from "react-icons/io5";
+import { LuHistory } from "react-icons/lu";
 
 const MenuDashboard = () => {
   const [role] = useRole();
@@ -9,13 +12,14 @@ const MenuDashboard = () => {
     <div className="flex flex-col bg-back-main-color h-full p-12 text-white font-bold text-xl">
       <div className="flex flex-col gap-4 flex-1">
         <Logo />
+       
         <NavLink
           to={"/dashboard"}
           className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "" : ""
+            isPending ? "pending" : isActive ? "flex items-center gap-1" : ""
           }
         >
-          Dashboard
+         <MdDashboard/> Dashboard
         </NavLink>
         <NavLink
           to={"addHotel"}
@@ -27,7 +31,7 @@ const MenuDashboard = () => {
               : ""
           }
         >
-          Add Hotel
+         <div className="flex items-center gap-1"><IoAdd/> Add Hotel</div>
         </NavLink>
         <NavLink
           to={"viewOrders"}
@@ -64,7 +68,7 @@ const MenuDashboard = () => {
               : ""
           }
         >
-          Payment History
+         <LuHistory/> Payment History
         </NavLink>
       </div>
       <div>
