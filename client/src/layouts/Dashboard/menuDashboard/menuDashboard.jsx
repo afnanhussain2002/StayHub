@@ -1,8 +1,8 @@
 import { Link, NavLink } from "react-router-dom";
 import Logo from "../../../sheard/header/Logo";
 import useRole from "../../../hooks/useRole";
-import { MdDashboard,MdAddCircle } from "react-icons/md";
-
+import { MdDashboard,MdAddCircle, MdCollectionsBookmark  } from "react-icons/md";
+import { FaHotel } from "react-icons/fa";
 import { LuHistory } from "react-icons/lu";
 
 const MenuDashboard = () => {
@@ -43,7 +43,7 @@ const MenuDashboard = () => {
               : ""
           }
         >
-          View Orders
+         <div className="flex items-center gap-1"> <MdCollectionsBookmark/> View Orders</div>
         </NavLink>
         <NavLink
           to={"yourHotels"}
@@ -55,7 +55,7 @@ const MenuDashboard = () => {
               : ""
           }
         >
-          Your Hotels
+          <div className="flex items-center gap-1"><FaHotel/> Your Hotels</div>
         </NavLink>
         {role === "admin" && <Link to={"allUsers"}>All Users</Link>}
         <NavLink
