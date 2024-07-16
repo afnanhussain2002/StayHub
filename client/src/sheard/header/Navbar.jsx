@@ -82,7 +82,7 @@ const Navbar = () => {
   </div>
     
   :
-    <a className="btn">Button</a>
+    <Link to={'/login'} className="btn">Book Now</Link>
     }
   </div>
 

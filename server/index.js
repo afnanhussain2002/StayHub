@@ -17,6 +17,7 @@ const corsOptions = {
 
 app.use(express.json());
 app.use(cors(corsOptions));
+app.use(cookieParser())
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.wpyq7sp.mongodb.net/?appName=Cluster0`;
 
@@ -36,6 +37,24 @@ async function run() {
     const userCollection = client.db("stayHubDB").collection("hubUser");
     const hotelsCollection = client.db("stayHubDB").collection("hotel");
     const bookingCollection = client.db("stayHubDB").collection("booking")
+
+
+    // middleware
+    const verifyToken = async(req,res,next) =>{
+      const token = req.cookies?.token 
+      console.log(token);
+      if (!token) {
+        return res.status(401).send({message:'unauthorized access'})
+      }
+      jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decoded) =>{
+        if (err) {
+          console.log(err);
+          return res.status(401).send({message:'unauthorized access'})
+        }
+        req.user = decoded
+        next()
+      })
+    }
 
     // auth related api
 
