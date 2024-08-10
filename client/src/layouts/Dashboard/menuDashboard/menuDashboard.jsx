@@ -80,7 +80,7 @@ const MenuDashboard = () => {
       </div>
     </div>
     {/* tablet and mobile menu */}
-    <MobileMenu/>
+   
 
 </>
   );
